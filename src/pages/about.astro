@@ -7,14 +7,14 @@ const team = [
 		role: 'Co-Founder',
 		bio: 'Employee #1 at a previously acquired affiliate marketing agency with 10+ years in the affiliate space. Molly leads the agency\'s vision for data-driven, performance-based partnership marketing — expanding globally while maintaining the transparency-first values she built her career on.',
 		linkedin: 'https://www.linkedin.com/in/mollyob',
-		initials: 'MO',
+		photo: '/images/molly.jpg',
 	},
 	{
 		name: 'Muzio Pesaresi',
 		role: 'Co-Founder',
 		bio: 'Working to elevate ItalyPoint\'s portfolio through partnership marketing integration. Muzio brings deep operational expertise and a systems-thinking approach to building programs that scale, with a focus on technology-driven execution and measurable outcomes.',
 		linkedin: 'https://www.linkedin.com/in/muzio-pesaresi-9b56a987',
-		initials: 'MP',
+		photo: '/images/muzio.jpg',
 	},
 ];
 
@@ -97,11 +97,11 @@ const values = [
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
-				{team.map(({ name, role, bio, linkedin, initials }) => (
+				{team.map(({ name, role, bio, linkedin, photo }) => (
 					<div class="p-8 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
 						<!-- Avatar -->
-						<div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/20 flex items-center justify-center text-blue-300 font-bold text-lg mb-5">
-							{initials}
+						<div class="w-16 h-16 rounded-2xl overflow-hidden mb-5">
+							<img src={photo} alt={name} class="w-full h-full object-cover object-top" />
 						</div>
 						<h3 class="text-lg font-semibold text-white mb-0.5">{name}</h3>
 						<p class="text-sm text-blue-400 font-medium mb-4">{role}</p>
