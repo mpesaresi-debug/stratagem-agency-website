@@ -1,0 +1,172 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+	{
+		id: 'program-management',
+		category: 'Core',
+		title: 'Partnership Program Management',
+		description: 'We efficiently manage affiliate programs, overseeing the entire process from recruitment to commission payout. Our hands-on approach ensures optimal performance, clean attribution, and sustainable ROI at every stage.',
+		points: [
+			'Full-cycle program setup and ongoing operations',
+			'Publisher onboarding and relationship management',
+			'Commission payout oversight and reconciliation',
+			'Platform configuration and optimization (Impact.com)',
+		],
+	},
+	{
+		id: 'incrementality',
+		category: 'Analytics',
+		title: 'Incrementality & Analytics',
+		description: 'The hardest — and most important — question in affiliate marketing is: what revenue did you actually drive? We build measurement frameworks that answer this honestly, separating true incremental revenue from what would have happened anyway.',
+		points: [
+			'Holdout group design and incrementality testing',
+			'Partner Value Index (PVI) scoring models',
+			'Affiliate Incrementality Score (AIS) framework',
+			'Attribution modeling and Commission Efficiency Ratio (CER)',
+		],
+	},
+	{
+		id: 'partner-recruitment',
+		category: 'Growth',
+		title: 'Partner Recruitment & Vetting',
+		description: 'We identify and onboard high-quality affiliates aligned with your brand\'s values and objectives. Strategic partner selection drives better performance than chasing volume — we build programs around quality.',
+		points: [
+			'Publisher research and competitive benchmarking',
+			'Outreach, negotiation, and contract management',
+			'Brand alignment and audience fit analysis',
+			'Tiered partner structure design',
+		],
+	},
+	{
+		id: 'commission-optimization',
+		category: 'Strategy',
+		title: 'Commission Structure Optimization',
+		description: 'Most commission structures reward volume, not value. We design structures that incentivize the right behaviors — rewarding incremental revenue, new customer acquisition, and long-term partner quality.',
+		points: [
+			'Performance-tiered commission models',
+			'New vs. returning customer differentiation',
+			'Coupon cannibalization prevention',
+			'Dynamic incentive design for top partners',
+		],
+	},
+	{
+		id: 'content-seo',
+		category: 'Acquisition',
+		title: 'Content & SEO Strategy',
+		description: 'We enhance the visibility of affiliate content in search results by combining keyword research, content optimization, technical enhancements, and strategic link-building — driving organic traffic that converts.',
+		points: [
+			'Publisher content strategy and optimization',
+			'Keyword mapping for affiliate landing pages',
+			'Technical SEO guidance for partner sites',
+			'Editorial calendar and content brief creation',
+		],
+	},
+	{
+		id: 'brand-awareness',
+		category: 'Acquisition',
+		title: 'Brand Awareness & Influencer Collaboration',
+		description: 'By harnessing the influence of affiliates and their respective audiences, we spread your brand message across channels. Strategic partner selection and consistent messaging drive brand recognition at scale.',
+		points: [
+			'Influencer identification and outreach',
+			'Social media partnership campaigns',
+			'Co-branded content development',
+			'Audience overlap analysis',
+		],
+	},
+	{
+		id: 'localization',
+		category: 'Expansion',
+		title: 'International & Localized Campaigns',
+		description: 'We develop tailored affiliate campaigns for international markets, considering cultural nuances and local preferences to resonate with target audiences beyond your home market.',
+		points: [
+			'Market entry strategy for new geographies',
+			'Localized publisher recruitment',
+			'Culturally adapted messaging and creative',
+			'Local compliance and regulatory guidance',
+		],
+	},
+	{
+		id: 'compliance',
+		category: 'Governance',
+		title: 'Compliance, Reporting & Legal Guidance',
+		description: 'We provide in-depth analytics, regulatory compliance guidance, and transparent reporting. Our comprehensive analysis tracks the effectiveness of campaigns and provides actionable recommendations.',
+		points: [
+			'FTC and advertising regulatory compliance',
+			'Executive dashboards and custom reporting',
+			'Brand safety and partner monitoring',
+			'Fraud detection and quality controls',
+		],
+	},
+];
+
+const categories = ['All', ...new Set(services.map(s => s.category))];
+---
+
+<Layout
+	title="Services — Stratagem Agency"
+	description="End-to-end affiliate and partnership marketing services: program management, incrementality analytics, partner recruitment, commission optimization, and more."
+>
+
+	<!-- Hero -->
+	<section class="bg-[#0a1228] pt-32 pb-20">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="max-w-2xl">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Services</p>
+				<h1 class="text-5xl sm:text-6xl font-bold text-white leading-tight mb-6">
+					What we do — and how.
+				</h1>
+				<p class="text-lg text-slate-300 leading-relaxed">
+					We implement performance-based solutions that reach your goals. Every service is built around measurable outcomes, not activity metrics.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Grid -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+				{services.map(({ id, category, title, description, points }) => (
+					<div id={id} class="group p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition-all duration-300 bg-white scroll-mt-24">
+						<div class="flex items-start justify-between mb-5">
+							<span class="inline-flex px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold">
+								{category}
+							</span>
+						</div>
+						<h2 class="text-xl font-bold text-gray-900 mb-3">{title}</h2>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6">{description}</p>
+						<ul class="space-y-2.5">
+							{points.map((point) => (
+								<li class="flex items-start gap-2.5 text-sm text-gray-600">
+									<svg class="mt-0.5 flex-shrink-0 text-blue-500" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+									{point}
+								</li>
+							))}
+						</ul>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-20 bg-[#0a1228]">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+			<h2 class="text-3xl sm:text-4xl font-bold text-white mb-5">
+				Not sure where to start?
+			</h2>
+			<p class="text-slate-300 max-w-lg mx-auto mb-10 text-lg">
+				We'll audit your current program — or help you build one from scratch. Let's talk.
+			</p>
+			<a
+				href="/contact"
+				class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors text-sm"
+			>
+				Schedule a Free Consultation
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+			</a>
+		</div>
+	</section>
+
+</Layout>

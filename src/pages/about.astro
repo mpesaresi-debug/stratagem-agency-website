@@ -1,62 +1,145 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+	{
+		name: 'Molly O\'Beirne',
+		role: 'Co-Founder',
+		bio: 'Employee #1 at a previously acquired affiliate marketing agency with 10+ years in the affiliate space. Molly leads the agency\'s vision for data-driven, performance-based partnership marketing — expanding globally while maintaining the transparency-first values she built her career on.',
+		linkedin: 'https://www.linkedin.com/in/mollyob',
+		initials: 'MO',
+	},
+	{
+		name: 'Muzio Pesaresi',
+		role: 'Co-Founder',
+		bio: 'Working to elevate ItalyPoint\'s portfolio through partnership marketing integration. Muzio brings deep operational expertise and a systems-thinking approach to building programs that scale, with a focus on technology-driven execution and measurable outcomes.',
+		linkedin: 'https://www.linkedin.com/in/muzio-pesaresi-9b56a987',
+		initials: 'MP',
+	},
+];
+
+const values = [
+	{
+		title: 'Data over gut feeling',
+		desc: 'Every recommendation we make is backed by data. We build measurement frameworks first, then optimize based on what they tell us.',
+	},
+	{
+		title: 'Incrementality first',
+		desc: 'We only count revenue that your affiliate program actually drove — not revenue that would have happened anyway. That\'s the honest way to run a program.',
+	},
+	{
+		title: 'Radical transparency',
+		desc: 'No black boxes. You always know what\'s working, what isn\'t, and why — with reports designed to inform decisions, not impress.',
+	},
+	{
+		title: 'Partnerships as assets',
+		desc: 'We position every partnership as a strategic asset, not a media buy. Relationships built on mutual value last longer and perform better.',
+	},
+];
 ---
 
 <Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
+	title="About Us — Stratagem Agency"
+	description="A team of seasoned affiliate marketing professionals who have scaled businesses and exceeded expectations through data-driven, transparent outcome-based marketing."
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+	<!-- Hero -->
+	<section class="bg-[#0a1228] pt-32 pb-20">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="max-w-2xl">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">About Us</p>
+				<h1 class="text-5xl sm:text-6xl font-bold text-white leading-tight mb-6">
+					We've scaled programs. We know what works.
+				</h1>
+				<p class="text-lg text-slate-300 leading-relaxed">
+					Stratagem is a performance-based partnership marketing agency founded by practitioners — people who have run affiliate programs, grown them from zero to meaningful scale, and learned what separates sustainable growth from short-term noise.
+				</p>
+			</div>
+		</div>
+	</section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+	<!-- Mission -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+				<div>
+					<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Our Mission</p>
+					<h2 class="text-4xl font-bold text-gray-900 leading-tight mb-6">
+						Affiliate marketing is our expertise.
+					</h2>
+					<p class="text-gray-500 text-lg leading-relaxed mb-6">
+						We are a team of seasoned affiliate marketing professionals who have scaled businesses, grown teams, and driven outsized returns. Our approach combines the rigor of data science with the practical knowledge of operators who've been in the trenches.
+					</p>
+					<p class="text-gray-500 leading-relaxed">
+						Stratagem was founded at the intersection of Molly's vision for transparent, performance-based partnership marketing and Muzio's goal to integrate world-class affiliate capabilities into ItalyPoint's internationalization services — helping European brands compete globally.
+					</p>
+				</div>
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+					{values.map(({ title, desc }) => (
+						<div class="p-5 rounded-2xl border border-gray-100 bg-gray-50">
+							<h3 class="text-sm font-semibold text-gray-900 mb-2">{title}</h3>
+							<p class="text-sm text-gray-500 leading-relaxed">{desc}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+	<!-- Team -->
+	<section class="py-20 bg-[#0a1228]">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="max-w-xl mb-14">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">The Team</p>
+				<h2 class="text-4xl font-bold text-white leading-tight">
+					The people behind Stratagem.
+				</h2>
+			</div>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+				{team.map(({ name, role, bio, linkedin, initials }) => (
+					<div class="p-8 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
+						<!-- Avatar -->
+						<div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/20 flex items-center justify-center text-blue-300 font-bold text-lg mb-5">
+							{initials}
+						</div>
+						<h3 class="text-lg font-semibold text-white mb-0.5">{name}</h3>
+						<p class="text-sm text-blue-400 font-medium mb-4">{role}</p>
+						<p class="text-sm text-slate-400 leading-relaxed mb-5">{bio}</p>
+						<a
+							href={linkedin}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-white transition-colors"
+						>
+							<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+								<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+							</svg>
+							LinkedIn
+						</a>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ItalyPoint -->
+	<section class="py-16 bg-white border-t border-gray-100">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+			<div class="flex-1">
+				<p class="text-xs text-gray-400 uppercase tracking-widest font-semibold mb-2">Part of the ItalyPoint family</p>
+				<p class="text-gray-600 text-sm leading-relaxed max-w-xl">
+					Stratagem is an ItalyPoint, Inc. brand — helping Italian and European companies internationalize through performance-based marketing, affiliate programs, and data-driven growth strategies.
+				</p>
+			</div>
+			<a
+				href="/contact"
+				class="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors"
+			>
+				Work with us
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+			</a>
+		</div>
+	</section>
+
 </Layout>

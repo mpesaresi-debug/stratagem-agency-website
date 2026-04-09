@@ -1,111 +1,86 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout
+	title="Blog — Stratagem Agency"
+	description="Practical insights on affiliate marketing, incrementality measurement, partner valuation, and performance-based growth."
+>
+
+	<!-- Hero -->
+	<section class="bg-[#0a1228] pt-32 pb-20">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="max-w-xl">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Blog</p>
+				<h1 class="text-5xl sm:text-6xl font-bold text-white leading-tight mb-5">
+					Affiliate marketing, from first principles.
+				</h1>
+				<p class="text-lg text-slate-300 leading-relaxed">
+					Frameworks, case studies, and practical guides on building affiliate programs that actually grow your business.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Posts -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			{posts.length === 0 ? (
+				<p class="text-gray-400 text-center py-16">No posts yet. Check back soon.</p>
+			) : (
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{posts.map((post) => (
+						<article class="group flex flex-col rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition-all duration-200 overflow-hidden bg-white">
+							{post.data.heroImage && (
+								<div class="aspect-[16/9] overflow-hidden bg-gray-50">
+									<img
+										src={post.data.heroImage}
+										alt={post.data.title}
+										class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+										loading="lazy"
+									/>
+								</div>
+							)}
+							{!post.data.heroImage && (
+								<div class="aspect-[16/9] bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+									<svg class="text-blue-200" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+									</svg>
+								</div>
+							)}
+							<div class="flex flex-col flex-1 p-6">
+								<div class="flex items-center gap-2 mb-3">
+									{post.data.tags?.map((tag: string) => (
+										<span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 text-xs font-medium">{tag}</span>
+									))}
+									<time
+										datetime={post.data.pubDate.toISOString()}
+										class="text-xs text-gray-400 ml-auto"
+									>
+										{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+									</time>
+								</div>
+								<h2 class="text-base font-bold text-gray-900 mb-2 leading-snug group-hover:text-blue-600 transition-colors">
+									<a href={`/blog/${post.id}/`} class="stretched-link">{post.data.title}</a>
+								</h2>
+								{post.data.description && (
+									<p class="text-sm text-gray-500 leading-relaxed flex-1">{post.data.description}</p>
+								)}
+								<div class="mt-4 flex items-center gap-1.5 text-blue-600 text-xs font-semibold">
+									Read more
+									<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+								</div>
+							</div>
+						</article>
+					))}
+				</div>
+			)}
+		</div>
+	</section>
+
+</Layout>

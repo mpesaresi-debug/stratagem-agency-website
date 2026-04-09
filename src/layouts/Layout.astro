@@ -1,0 +1,31 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+}
+
+const {
+	title,
+	description = 'Performance-based partnership marketing for brands that want to scale sustainably.',
+	image,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} image={image} />
+	</head>
+	<body class="bg-white text-gray-900">
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
