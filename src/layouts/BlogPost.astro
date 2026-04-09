@@ -4,9 +4,9 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & { backHref?: string; backLabel?: string };
 
-const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags, backHref = '/blog', backLabel = 'Back to Blog' } = Astro.props;
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
 	month: 'long',
@@ -85,9 +85,9 @@ const formattedUpdated = updatedDate?.toLocaleDateString('en-US', {
 
 			<!-- Back to blog -->
 			<div class="max-w-3xl mx-auto px-6 lg:px-8 pb-16 border-t border-gray-100 pt-10">
-				<a href="/blog" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors font-medium">
+				<a href={backHref} class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors font-medium">
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-					Back to Blog
+					{backLabel}
 				</a>
 			</div>
 		</main>

@@ -2,7 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection('blog-it')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
@@ -12,7 +12,6 @@ const posts = (await getCollection('blog')).sort(
 	description="Approfondimenti pratici sull'affiliate marketing, la misurazione dell'incrementalità, la valorizzazione dei partner e la crescita basata sulle performance."
 >
 
-	<!-- Hero -->
 	<section class="bg-[#0a1228] pt-32 pb-20">
 		<div class="max-w-7xl mx-auto px-6 lg:px-8">
 			<div class="max-w-xl">
@@ -27,7 +26,6 @@ const posts = (await getCollection('blog')).sort(
 		</div>
 	</section>
 
-	<!-- Posts -->
 	<section class="py-20 bg-white">
 		<div class="max-w-7xl mx-auto px-6 lg:px-8">
 			{posts.length === 0 ? (
@@ -38,12 +36,7 @@ const posts = (await getCollection('blog')).sort(
 						<article class="group flex flex-col rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition-all duration-200 overflow-hidden bg-white">
 							{post.data.heroImage ? (
 								<div class="aspect-[16/9] overflow-hidden bg-gray-50">
-									<img
-										src={post.data.heroImage}
-										alt={post.data.title}
-										class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-										loading="lazy"
-									/>
+									<img src={post.data.heroImage} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
 								</div>
 							) : (
 								<div class="aspect-[16/9] bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
@@ -57,15 +50,12 @@ const posts = (await getCollection('blog')).sort(
 									{post.data.tags?.map((tag: string) => (
 										<span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 text-xs font-medium">{tag}</span>
 									))}
-									<time
-										datetime={post.data.pubDate.toISOString()}
-										class="text-xs text-gray-400 ml-auto"
-									>
+									<time datetime={post.data.pubDate.toISOString()} class="text-xs text-gray-400 ml-auto">
 										{post.data.pubDate.toLocaleDateString('it-IT', { month: 'short', day: 'numeric', year: 'numeric' })}
 									</time>
 								</div>
 								<h2 class="text-base font-bold text-gray-900 mb-2 leading-snug group-hover:text-blue-600 transition-colors">
-									<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+									<a href={`/it/blog/${post.id}/`}>{post.data.title}</a>
 								</h2>
 								{post.data.description && (
 									<p class="text-sm text-gray-500 leading-relaxed flex-1">{post.data.description}</p>
