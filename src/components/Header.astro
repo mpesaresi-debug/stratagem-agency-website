@@ -1,19 +1,35 @@
 ---
 const pathname = Astro.url.pathname;
+const isIT = pathname.startsWith('/it');
+const base = isIT ? '/it' : '';
 
-const navLinks = [
-	{ href: '/services', label: 'Services' },
-	{ href: '/about', label: 'About' },
-	{ href: '/blog', label: 'Blog' },
-	{ href: '/contact', label: 'Contact' },
-];
+const navLinks = isIT
+	? [
+		{ href: `${base}/services`, label: 'Servizi' },
+		{ href: `${base}/about`, label: 'Chi Siamo' },
+		{ href: `${base}/blog`, label: 'Blog' },
+		{ href: `${base}/contact`, label: 'Contattaci' },
+	]
+	: [
+		{ href: '/services', label: 'Services' },
+		{ href: '/about', label: 'About' },
+		{ href: '/blog', label: 'Blog' },
+		{ href: '/contact', label: 'Contact' },
+	];
+
+const ctaLabel = isIT ? 'Prenota una Call' : 'Schedule a Meeting';
+const ctaHref = isIT ? `${base}/contact` : '/contact';
+
+// Language switcher: swap /it prefix
+const enHref = pathname.replace(/^\/it(\/|$)/, '/').replace(/\/$/, '') || '/';
+const itHref = isIT ? pathname : `/it${pathname === '/' ? '' : pathname}`;
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent" id="site-header">
 	<div class="max-w-7xl mx-auto px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
 			<!-- Logo -->
-			<a href="/" class="flex items-center gap-2.5 group" aria-label="Stratagem - Home">
+			<a href={isIT ? '/it' : '/'} class="flex items-center gap-2.5 group" aria-label="Stratagem - Home">
 				<img src="/images/logo-icon.png" alt="" class="h-8 w-auto" aria-hidden="true" />
 				<img src="/images/logo-text.png" alt="Stratagem Agency" class="h-6 w-auto" />
 			</a>
@@ -32,13 +48,25 @@ const navLinks = [
 				))}
 			</nav>
 
-			<!-- CTA -->
-			<div class="hidden md:flex items-center">
+			<!-- CTA + Language switcher -->
+			<div class="hidden md:flex items-center gap-3">
+				<!-- Language switcher -->
+				<div class="flex items-center rounded-lg border border-white/20 overflow-hidden text-xs font-semibold">
+					<a
+						href={enHref}
+						class={`px-2.5 py-1.5 transition-colors ${!isIT ? 'bg-white/15 text-white' : 'text-slate-400 hover:text-white'}`}
+					>EN</a>
+					<span class="w-px h-4 bg-white/20"></span>
+					<a
+						href={itHref}
+						class={`px-2.5 py-1.5 transition-colors ${isIT ? 'bg-white/15 text-white' : 'text-slate-400 hover:text-white'}`}
+					>IT</a>
+				</div>
 				<a
-					href="/contact"
+					href={ctaHref}
 					class="inline-flex items-center px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-colors"
 				>
-					Schedule a Meeting
+					{ctaLabel}
 				</a>
 			</div>
 
@@ -78,11 +106,17 @@ const navLinks = [
 				</a>
 			))}
 			<a
-				href="/contact"
+				href={ctaHref}
 				class="mt-2 py-2.5 px-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium text-center transition-colors"
 			>
-				Schedule a Meeting
+				{ctaLabel}
 			</a>
+			<!-- Mobile language switcher -->
+			<div class="mt-3 flex items-center gap-2 px-3">
+				<span class="text-xs text-slate-500 font-medium">Language:</span>
+				<a href={enHref} class={`text-xs font-semibold px-2 py-1 rounded ${!isIT ? 'bg-white/15 text-white' : 'text-slate-400'}`}>EN</a>
+				<a href={itHref} class={`text-xs font-semibold px-2 py-1 rounded ${isIT ? 'bg-white/15 text-white' : 'text-slate-400'}`}>IT</a>
+			</div>
 		</div>
 	</div>
 </header>

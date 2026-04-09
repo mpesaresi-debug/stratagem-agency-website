@@ -1,0 +1,227 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+	{
+		icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>`,
+		title: 'Gestione Programma',
+		desc: 'Gestione completa del programma di affiliazione — dal reclutamento al pagamento delle commissioni — ottimizzato per le performance e il ROI.',
+	},
+	{
+		icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>`,
+		title: 'Incrementalità & Analytics',
+		desc: 'Misuriamo ciò che le partnership generano realmente, separando i ricavi incrementali da quelli che si sarebbero prodotti comunque.',
+	},
+	{
+		icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+		title: 'Selezione Partner Strategici',
+		desc: 'Identifichiamo e onboardiamo affiliati di qualità in linea con i valori del brand e gli obiettivi di crescita.',
+	},
+	{
+		icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+		title: 'Ottimizzazione Commissioni',
+		desc: 'Progettiamo strutture commissionale che incentivano i comportamenti giusti — premiando la qualità, non solo il volume.',
+	},
+	{
+		icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`,
+		title: 'Messa a Norma & Report',
+		desc: 'Analytics approfondite, guida alla conformità normativa e report trasparenti per mantenere il programma pulito e responsabile.',
+	},
+	{
+		icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+		title: 'Audit del Programma',
+		desc: 'Valutazione sistematica del tuo programma di affiliazione rispetto agli standard di settore per identificare gap e opportunità.',
+	},
+];
+
+const stats = [
+	{ value: '10+', label: 'Anni nel marketing di affiliazione' },
+	{ value: '3×', label: 'Crescita media annua del canale' },
+	{ value: '100%', label: 'Trasparenza — sempre' },
+];
+---
+
+<Layout
+	title="Stratagem — Your Growth Layer"
+	description="Marketing di partnership basato sulle performance per brand che vogliono crescere in modo sostenibile. Incrementalità, valorizzazione dei partner e gestione dei programmi di affiliazione."
+>
+
+	<!-- Hero -->
+	<section class="relative min-h-screen flex flex-col justify-center bg-[#0a1228] overflow-hidden">
+		<div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+			<div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px;"></div>
+			<div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.15) 0%, transparent 70%);"></div>
+		</div>
+
+		<div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24">
+			<div class="max-w-3xl">
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-8">
+					<span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+					Marketing di Partnership Basato sulle Performance
+				</div>
+
+				<h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
+					Your<br />
+					<span class="text-transparent bg-clip-text" style="background-image: linear-gradient(135deg, #3b82f6 0%, #818cf8 100%);">
+						Growth Layer.
+					</span>
+				</h1>
+
+				<p class="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-xl mb-10">
+					Costruiamo e gestiamo programmi di affiliazione che crescono in modo sostenibile — combinando selezione dei partner basata sui dati, misurazione dell'incrementalità e report trasparenti sulle performance.
+				</p>
+
+				<div class="flex flex-wrap items-center gap-4">
+					<a
+						href="/it/contact"
+						class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors shadow-lg shadow-blue-900/40"
+					>
+						Prenota una Call
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+					</a>
+					<a
+						href="/it/services"
+						class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white font-semibold transition-colors border border-white/10"
+					>
+						Vedi i Nostri Servizi
+					</a>
+				</div>
+			</div>
+
+			<div class="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
+				{stats.map(({ value, label }) => (
+					<div class="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
+						<div class="text-3xl font-bold text-white mb-1">{value}</div>
+						<div class="text-sm text-slate-400">{label}</div>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-500 text-xs" aria-hidden="true">
+			<span>Scorri</span>
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+		</div>
+	</section>
+
+	<!-- Cosa Facciamo -->
+	<section class="py-24 bg-white">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="max-w-2xl mb-16">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Cosa Facciamo</p>
+				<h2 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-5">
+					Soluzioni basate sulle performance per raggiungere i tuoi obiettivi
+				</h2>
+				<p class="text-lg text-gray-500 leading-relaxed">
+					Implementiamo programmi di affiliazione e partnership progettati attorno a risultati misurabili — non a metriche di vanità. Ogni decisione è guidata dai dati.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				{services.map(({ icon, title, desc }) => (
+					<div class="group p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-50 transition-all duration-200 bg-white">
+						<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors" set:html={icon} />
+						<h3 class="text-base font-semibold text-gray-900 mb-2">{title}</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">{desc}</p>
+					</div>
+				))}
+			</div>
+
+			<div class="mt-12 text-center">
+				<a href="/it/services" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-500 font-semibold text-sm transition-colors">
+					Vedi tutti i servizi
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Perché Stratagem -->
+	<section class="py-24 bg-[#0a1228]">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+				<div>
+					<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Perché Stratagem</p>
+					<h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+						L'affiliate marketing è la nostra specialità.
+					</h2>
+					<p class="text-slate-300 text-lg leading-relaxed mb-8">
+						Siamo un team di professionisti esperti in affiliate marketing che ha fatto crescere aziende, team e fatto ottenere rendimenti eccezionali — attraverso un marketing basato sui dati e sulla trasparenza.
+					</p>
+					<ul class="space-y-4">
+						{[
+							'Approccio incentrato sull\'incrementalità — misuriamo ciò che hai guadagnato davvero',
+							'Framework proprietari di valutazione dei partner',
+							'Competenza approfondita sulla piattaforma Impact.com',
+							'Report trasparenti — nessuna scatola nera, mai',
+						].map((item) => (
+							<li class="flex items-start gap-3 text-slate-300 text-sm">
+								<svg class="mt-0.5 flex-shrink-0 text-blue-400" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+								{item}
+							</li>
+						))}
+					</ul>
+					<a
+						href="/it/about"
+						class="mt-10 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white font-semibold transition-colors border border-white/10 text-sm"
+					>
+						Conosci il Team
+					</a>
+				</div>
+
+				<div class="relative">
+					<div class="rounded-3xl bg-white/[0.04] border border-white/[0.07] p-8">
+						<div class="flex items-center gap-3 mb-6">
+							<div class="w-10 h-10 rounded-xl bg-blue-600/20 flex items-center justify-center">
+								<svg class="text-blue-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+							</div>
+							<div>
+								<div class="text-sm font-semibold text-white">Punteggio di Incrementalità</div>
+								<div class="text-xs text-slate-400">Indice di Valorizzazione Partner</div>
+							</div>
+						</div>
+						<div class="space-y-4">
+							{[
+								{ label: 'Publisher di Contenuto', score: 87, color: 'bg-blue-500' },
+								{ label: 'Loyalty & Premi', score: 62, color: 'bg-indigo-500' },
+								{ label: 'Partner Coupon', score: 34, color: 'bg-slate-500' },
+								{ label: 'Influencer Social', score: 71, color: 'bg-violet-500' },
+							].map(({ label, score, color }) => (
+								<div>
+									<div class="flex justify-between text-xs mb-1.5">
+										<span class="text-slate-400">{label}</span>
+										<span class="text-white font-medium">{score}</span>
+									</div>
+									<div class="h-1.5 rounded-full bg-white/10">
+										<div class={`h-full rounded-full ${color}`} style={`width: ${score}%`}></div>
+									</div>
+								</div>
+							))}
+						</div>
+						<p class="text-xs text-slate-500 mt-6">Illustrativo — ogni programma è diverso. Costruiamo il tuo modello di scoring dai tuoi dati reali.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-24 bg-white">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+			<h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-5">
+				Scopri come possiamo farti crescere.
+			</h2>
+			<p class="text-lg text-gray-500 max-w-xl mx-auto mb-10">
+				Che tu stia avviando un programma da zero o ottimizzandone uno esistente, ti mostreremo esattamente dove si trovano le opportunità.
+			</p>
+			<a
+				href="/it/contact"
+				class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors shadow-lg shadow-blue-100 text-base"
+			>
+				Prenota una Call
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+			</a>
+		</div>
+	</section>
+
+</Layout>

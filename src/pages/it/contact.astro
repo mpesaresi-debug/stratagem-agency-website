@@ -1,0 +1,196 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+	title="Contattaci — Stratagem Agency"
+	description="Pronto a scalare il tuo programma di affiliazione? Prenota una consulenza con il team di Stratagem."
+>
+
+	<!-- Hero -->
+	<section class="bg-[#0a1228] pt-32 pb-20">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="max-w-xl">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Contattaci</p>
+				<h1 class="text-5xl sm:text-6xl font-bold text-white leading-tight mb-6">
+					Parliamoci.
+				</h1>
+				<p class="text-lg text-slate-300 leading-relaxed">
+					Che tu stia avviando un programma di affiliazione da zero, facendo un audit di uno esistente, o cercando un partner strategico per crescere — ci farebbe piacere conoscere i tuoi obiettivi.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Options -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+				<!-- Left: What to expect -->
+				<div>
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">Cosa succede dopo</h2>
+					<ol class="space-y-6">
+						{[
+							{
+								step: '01',
+								title: 'Prenota una call gratuita di 30 minuti',
+								desc: 'Nessun pitch. Solo una conversazione onesta su dov\'è il tuo programma di affiliazione e dove vuoi portarlo.',
+							},
+							{
+								step: '02',
+								title: 'Analizziamo la situazione attuale',
+								desc: 'Valutiamo il tuo programma esistente, il panorama competitivo e identifichiamo le opportunità più importanti.',
+							},
+							{
+								step: '03',
+								title: 'Ricevi un piano chiaro',
+								desc: 'Una roadmap concreta — cosa fare, in quale ordine e quale impatto aspettarsi. Niente fronzoli.',
+							},
+						].map(({ step, title, desc }) => (
+							<li class="flex items-start gap-5">
+								<span class="text-3xl font-bold text-blue-100 tabular-nums flex-shrink-0 leading-none mt-0.5">{step}</span>
+								<div>
+									<h3 class="text-base font-semibold text-gray-900 mb-1">{title}</h3>
+									<p class="text-sm text-gray-500 leading-relaxed">{desc}</p>
+								</div>
+							</li>
+						))}
+					</ol>
+
+					<div class="mt-12 p-6 rounded-2xl bg-gray-50 border border-gray-100">
+						<p class="text-sm text-gray-500 leading-relaxed mb-4">
+							Preferisci contattarci direttamente? Puoi trovarci anche su LinkedIn.
+						</p>
+						<div class="flex flex-col gap-2">
+							<a
+								href="https://www.linkedin.com/in/mollyob"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium"
+							>
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+								</svg>
+								Molly O'Beirne su LinkedIn
+							</a>
+							<a
+								href="https://www.linkedin.com/in/muzio-pesaresi-9b56a987"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium"
+							>
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+								</svg>
+								Muzio Pesaresi su LinkedIn
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right: Contact form -->
+				<div>
+					<div class="p-8 rounded-2xl border border-gray-100 shadow-sm bg-white">
+						<h2 class="text-xl font-bold text-gray-900 mb-6">Inviaci un messaggio</h2>
+						<form
+							name="contact-it"
+							method="POST"
+							action="/it/contact/success"
+							class="space-y-5"
+						>
+							<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+								<div>
+									<label for="nome" class="block text-xs font-semibold text-gray-700 mb-1.5">Nome</label>
+									<input
+										type="text"
+										id="nome"
+										name="nome"
+										required
+										class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+										placeholder="Mario"
+									/>
+								</div>
+								<div>
+									<label for="cognome" class="block text-xs font-semibold text-gray-700 mb-1.5">Cognome</label>
+									<input
+										type="text"
+										id="cognome"
+										name="cognome"
+										required
+										class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+										placeholder="Rossi"
+									/>
+								</div>
+							</div>
+
+							<div>
+								<label for="email" class="block text-xs font-semibold text-gray-700 mb-1.5">Email aziendale</label>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									required
+									class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+									placeholder="mario@azienda.it"
+								/>
+							</div>
+
+							<div>
+								<label for="azienda" class="block text-xs font-semibold text-gray-700 mb-1.5">Azienda</label>
+								<input
+									type="text"
+									id="azienda"
+									name="azienda"
+									class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+									placeholder="Acme Srl"
+								/>
+							</div>
+
+							<div>
+								<label for="obiettivo" class="block text-xs font-semibold text-gray-700 mb-1.5">Qual è il tuo obiettivo principale?</label>
+								<select
+									id="obiettivo"
+									name="obiettivo"
+									class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white"
+								>
+									<option value="" disabled selected>Seleziona un'opzione</option>
+									<option value="avvio">Avviare un nuovo programma di affiliazione</option>
+									<option value="audit">Audit / migliorare un programma esistente</option>
+									<option value="incrementalita">Misurare l'incrementalità</option>
+									<option value="partner">Reclutare partner migliori</option>
+									<option value="piattaforma">Migrare su o ottimizzare Impact.com</option>
+									<option value="altro">Altro</option>
+								</select>
+							</div>
+
+							<div>
+								<label for="messaggio" class="block text-xs font-semibold text-gray-700 mb-1.5">Raccontaci di più</label>
+								<textarea
+									id="messaggio"
+									name="messaggio"
+									rows="4"
+									class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+									placeholder="Condividi il contesto del tuo programma, le dimensioni del team o cosa non sta funzionando..."
+								></textarea>
+							</div>
+
+							<button
+								type="submit"
+								class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-colors"
+							>
+								Invia Messaggio
+							</button>
+
+							<p class="text-xs text-gray-400 text-center">
+								Rispondiamo entro 1 giorno lavorativo.
+							</p>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+</Layout>

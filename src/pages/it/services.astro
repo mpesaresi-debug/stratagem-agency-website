@@ -1,0 +1,170 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+	{
+		id: 'gestione-programma',
+		category: 'Core',
+		title: 'Gestione Programma Partnership Marketing',
+		description: 'Gestiamo in modo efficiente i programmi di affiliazione, supervisionando l\'intero processo dal reclutamento al pagamento delle commissioni. Il nostro approccio pratico garantisce performance ottimali, attribuzione corretta e ROI sostenibile in ogni fase.',
+		points: [
+			'Setup completo del programma e operazioni continuative',
+			'Onboarding dei publisher e gestione delle relazioni',
+			'Supervisione dei pagamenti e riconciliazione delle commissioni',
+			'Configurazione e ottimizzazione della piattaforma (Impact.com)',
+		],
+	},
+	{
+		id: 'incrementalita',
+		category: 'Analytics',
+		title: 'Incrementalità & Analytics',
+		description: 'La domanda più difficile — e più importante — nell\'affiliate marketing è: quali ricavi hai effettivamente generato? Costruiamo framework di misurazione che rispondono a questa domanda onestamente, separando i ricavi veramente incrementali da quelli che si sarebbero prodotti comunque.',
+		points: [
+			'Design di gruppi di controllo e test di incrementalità',
+			'Modelli di scoring Partner Value Index (PVI)',
+			'Framework Affiliate Incrementality Score (AIS)',
+			'Modelli di attribuzione e Commission Efficiency Ratio (CER)',
+		],
+	},
+	{
+		id: 'selezione-partner',
+		category: 'Crescita',
+		title: 'Selezione e Reclutamento Partner',
+		description: 'Identifichiamo e onboardiamo affiliati di alta qualità in linea con i valori e gli obiettivi del brand. La selezione strategica dei partner genera performance migliori rispetto all\'inseguimento del volume — costruiamo programmi attorno alla qualità.',
+		points: [
+			'Ricerca dei publisher e benchmarking competitivo',
+			'Outreach, negoziazione e gestione contrattuale',
+			'Analisi dell\'allineamento col brand e del fit con il pubblico',
+			'Progettazione di strutture partner a livelli',
+		],
+	},
+	{
+		id: 'ottimizzazione-commissioni',
+		category: 'Strategia',
+		title: 'Ottimizzazione della Struttura Commissionale',
+		description: 'La maggior parte delle strutture commissionali premia il volume, non il valore. Progettiamo strutture che incentivano i comportamenti giusti — premiando i ricavi incrementali, l\'acquisizione di nuovi clienti e la qualità dei partner nel lungo periodo.',
+		points: [
+			'Modelli commissionali a performance a livelli',
+			'Differenziazione tra clienti nuovi e ricorrenti',
+			'Prevenzione della cannibalizzazione da coupon',
+			'Design di incentivi dinamici per i top partner',
+		],
+	},
+	{
+		id: 'contenuti-seo',
+		category: 'Acquisizione',
+		title: 'Strategia di Contenuti & SEO',
+		description: 'Potenziamo la visibilità dei contenuti di affiliazione nei risultati di ricerca combinando keyword research, ottimizzazione dei contenuti, miglioramenti tecnici e link-building strategico — generando traffico organico che converte.',
+		points: [
+			'Strategia di contenuto e ottimizzazione per i publisher',
+			'Mappatura delle keyword per le landing page di affiliazione',
+			'Guida SEO tecnica per i siti dei partner',
+			'Calendario editoriale e creazione di brief sui contenuti',
+		],
+	},
+	{
+		id: 'brand-awareness',
+		category: 'Acquisizione',
+		title: 'Brand Awareness e Collaborazione con Influencer',
+		description: 'Sfruttando l\'influenza degli affiliati e dei loro rispettivi pubblici, diffondiamo il messaggio del brand attraverso i canali. La selezione strategica dei partner e la messaggistica coerente guidano il riconoscimento del brand su scala.',
+		points: [
+			'Identificazione e outreach degli influencer',
+			'Campagne di partnership sui social media',
+			'Sviluppo di contenuti co-branded',
+			'Analisi della sovrapposizione dei pubblici',
+		],
+	},
+	{
+		id: 'campagne-internazionali',
+		category: 'Espansione',
+		title: 'Campagne Internazionali e Localizzate',
+		description: 'Sviluppiamo campagne di affiliazione su misura per i mercati internazionali, considerando le sfumature culturali e le preferenze locali per risuonare efficacemente con i pubblici target al di là del mercato domestico.',
+		points: [
+			'Strategia di ingresso in nuovi mercati geografici',
+			'Reclutamento di publisher locali',
+			'Messaggistica e creatività adattate culturalmente',
+			'Conformità normativa e guida legale locale',
+		],
+	},
+	{
+		id: 'compliance',
+		category: 'Governance',
+		title: 'Messa a Norma, Report e Guida Legale',
+		description: 'Forniamo analytics approfondite, guida alla conformità normativa e report trasparenti. La nostra analisi completa monitora l\'efficacia delle campagne e offre raccomandazioni concrete.',
+		points: [
+			'Conformità alle normative pubblicitarie italiane ed europee',
+			'Dashboard executive e report personalizzati',
+			'Brand safety e monitoraggio dei partner',
+			'Rilevamento frodi e controlli di qualità',
+		],
+	},
+];
+---
+
+<Layout
+	title="Servizi — Stratagem Agency"
+	description="Servizi completi di affiliate e partnership marketing: gestione dei programmi, analytics di incrementalità, reclutamento partner, ottimizzazione delle commissioni e altro ancora."
+>
+
+	<!-- Hero -->
+	<section class="bg-[#0a1228] pt-32 pb-20">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="max-w-2xl">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Servizi</p>
+				<h1 class="text-5xl sm:text-6xl font-bold text-white leading-tight mb-6">
+					Cosa facciamo — e come.
+				</h1>
+				<p class="text-lg text-slate-300 leading-relaxed">
+					Implementiamo soluzioni basate sulle performance che raggiungono i tuoi obiettivi. Ogni servizio è costruito attorno a risultati misurabili, non a metriche di attività.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Grid -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+				{services.map(({ id, category, title, description, points }) => (
+					<div id={id} class="group p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition-all duration-300 bg-white scroll-mt-24">
+						<div class="flex items-start justify-between mb-5">
+							<span class="inline-flex px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold">
+								{category}
+							</span>
+						</div>
+						<h2 class="text-xl font-bold text-gray-900 mb-3">{title}</h2>
+						<p class="text-gray-500 text-sm leading-relaxed mb-6">{description}</p>
+						<ul class="space-y-2.5">
+							{points.map((point) => (
+								<li class="flex items-start gap-2.5 text-sm text-gray-600">
+									<svg class="mt-0.5 flex-shrink-0 text-blue-500" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+									{point}
+								</li>
+							))}
+						</ul>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-20 bg-[#0a1228]">
+		<div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+			<h2 class="text-3xl sm:text-4xl font-bold text-white mb-5">
+				Non sai da dove iniziare?
+			</h2>
+			<p class="text-slate-300 max-w-lg mx-auto mb-10 text-lg">
+				Faremo un audit del tuo programma attuale — o ti aiuteremo a costruirne uno da zero. Parliamone.
+			</p>
+			<a
+				href="/it/contact"
+				class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors text-sm"
+			>
+				Prenota una Consulenza Gratuita
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+			</a>
+		</div>
+	</section>
+
+</Layout>
