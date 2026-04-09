@@ -123,7 +123,7 @@ export async function POST({ request, locals }: APIContext) {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				from: 'Stratagem Website <onboarding@resend.dev>',
+				from: 'Stratagem Website <website@stratagem.agency>',
 				to: ['contact@stratagem.agency'],
 				reply_to: email,
 				subject: `New message from ${fullName}${company ? ` — ${company}` : ''}`,
