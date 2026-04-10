@@ -1,5 +1,8 @@
 ---
 const currentYear = new Date().getFullYear();
+const pathname = Astro.url.pathname;
+const isIT = pathname.startsWith('/it');
+const base = isIT ? '/it' : '';
 ---
 
 <footer class="bg-[#060d1f] border-t border-white/[0.06] text-slate-400">
@@ -7,7 +10,7 @@ const currentYear = new Date().getFullYear();
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-14">
 			<!-- Brand -->
 			<div class="md:col-span-2">
-				<a href="/" class="flex items-center gap-2.5 mb-4">
+				<a href={isIT ? '/it' : '/'} class="flex items-center gap-2.5 mb-4">
 					<picture>
 					<source srcset="/images/logo-icon.webp" type="image/webp" />
 					<img src="/images/logo-icon.png" alt="" width="38" height="32" class="h-8 w-auto" aria-hidden="true" loading="lazy" />
@@ -18,7 +21,9 @@ const currentYear = new Date().getFullYear();
 				</span>
 				</a>
 				<p class="text-sm leading-relaxed max-w-xs">
-					Performance-based partnership marketing for brands that want to scale sustainably and measure what matters.
+					{isIT
+						? 'Marketing di affiliazione basato sulla performance per brand che vogliono crescere in modo sostenibile e misurare ciò che conta.'
+						: 'Performance-based partnership marketing for brands that want to scale sustainably and measure what matters.'}
 				</p>
 				<div class="mt-5 flex items-center gap-3">
 					<a
@@ -37,33 +42,33 @@ const currentYear = new Date().getFullYear();
 
 			<!-- Services -->
 			<div>
-				<h3 class="text-xs font-semibold text-white uppercase tracking-widest mb-4">Services</h3>
+				<h3 class="text-xs font-semibold text-white uppercase tracking-widest mb-4">{isIT ? 'Servizi' : 'Services'}</h3>
 				<ul class="space-y-2.5 text-sm">
-					<li><a href="/services#program-management" class="hover:text-white transition-colors">Program Management</a></li>
-					<li><a href="/services#incrementality" class="hover:text-white transition-colors">Incrementality & Analytics</a></li>
-					<li><a href="/services#partner-recruitment" class="hover:text-white transition-colors">Partner Recruitment</a></li>
-					<li><a href="/services#commission-optimization" class="hover:text-white transition-colors">Commission Optimization</a></li>
-					<li><a href="/services#compliance" class="hover:text-white transition-colors">Compliance & Reporting</a></li>
+					<li><a href={`${base}/services#program-management`} class="hover:text-white transition-colors">{isIT ? 'Gestione Programma' : 'Program Management'}</a></li>
+					<li><a href={`${base}/services#incrementality`} class="hover:text-white transition-colors">{isIT ? 'Incrementalità & Analytics' : 'Incrementality & Analytics'}</a></li>
+					<li><a href={`${base}/services#partner-recruitment`} class="hover:text-white transition-colors">{isIT ? 'Reclutamento Partner' : 'Partner Recruitment'}</a></li>
+					<li><a href={`${base}/services#commission-optimization`} class="hover:text-white transition-colors">{isIT ? 'Ottimizzazione Commissioni' : 'Commission Optimization'}</a></li>
+					<li><a href={`${base}/services#compliance`} class="hover:text-white transition-colors">{isIT ? 'Compliance & Reporting' : 'Compliance & Reporting'}</a></li>
 				</ul>
 			</div>
 
 			<!-- Company -->
 			<div>
-				<h3 class="text-xs font-semibold text-white uppercase tracking-widest mb-4">Company</h3>
+				<h3 class="text-xs font-semibold text-white uppercase tracking-widest mb-4">{isIT ? 'Azienda' : 'Company'}</h3>
 				<ul class="space-y-2.5 text-sm">
-					<li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
-					<li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
-					<li><a href="/contact" class="hover:text-white transition-colors">Contact</a></li>
+					<li><a href={`${base}/about`} class="hover:text-white transition-colors">{isIT ? 'Chi Siamo' : 'About Us'}</a></li>
+					<li><a href={`${base}/blog`} class="hover:text-white transition-colors">Blog</a></li>
+					<li><a href={`${base}/contact`} class="hover:text-white transition-colors">{isIT ? 'Contattaci' : 'Contact'}</a></li>
 				</ul>
 			</div>
 		</div>
 
 		<!-- Bottom bar -->
 		<div class="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-			<p>© {currentYear} Stratagem Agency · An ItalyPoint, Inc. brand. All rights reserved.</p>
+			<p>© {currentYear} Stratagem Agency · {isIT ? 'Un brand ItalyPoint, Inc. Tutti i diritti riservati.' : 'An ItalyPoint, Inc. brand. All rights reserved.'}</p>
 			<div class="flex items-center gap-5">
-				<a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
-				<a href="/terms" class="hover:text-white transition-colors">Terms</a>
+				<a href={`${base}/privacy`} class="hover:text-white transition-colors">{isIT ? 'Informativa sulla Privacy' : 'Privacy Policy'}</a>
+				<a href={`${base}/terms`} class="hover:text-white transition-colors">{isIT ? 'Termini e Condizioni' : 'Terms'}</a>
 			</div>
 		</div>
 	</div>
