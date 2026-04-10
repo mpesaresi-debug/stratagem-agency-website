@@ -29,14 +29,14 @@ const itHref = isIT ? pathname : `/it${pathname === '/' ? '' : pathname}`;
 	<div class="max-w-7xl mx-auto px-6 lg:px-8">
 		<div class="flex items-center justify-between h-16">
 			<!-- Logo -->
-			<a href={isIT ? '/it' : '/'} class="flex items-center gap-2.5 group" aria-label="Stratagem - Home">
+			<a href={isIT ? '/it' : '/'} class="flex items-end gap-2.5 group" aria-label="Stratagem - Home">
 				<picture>
 					<source srcset="/images/logo-icon.webp" type="image/webp" />
-					<img src="/images/logo-icon.png" alt="" width="38" height="32" class="h-7 w-auto sm:h-8" aria-hidden="true" />
+					<img src="/images/logo-icon.png" alt="" width="38" height="32" class="h-7 w-auto sm:h-9" aria-hidden="true" />
 				</picture>
-				<span class="flex items-baseline gap-1.5 leading-none">
-					<span class="font-bold text-white tracking-wide text-sm sm:text-base">STRATAGEM</span>
-					<span class="font-bold text-slate-400 tracking-wide text-sm sm:text-base">AGENCY</span>
+				<span class="flex items-baseline gap-1.5 leading-none pb-0.5">
+					<span class="font-bold text-white tracking-wide text-base sm:text-xl">STRATAGEM</span>
+					<span class="font-bold text-slate-400 tracking-wide text-base sm:text-xl">AGENCY</span>
 				</span>
 			</a>
 
