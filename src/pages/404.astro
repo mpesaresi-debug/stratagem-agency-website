@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={Astro.url.pathname.startsWith('/it') ? 'it' : 'en'}>
 	<head>
 		<BaseHead title="Page Not Found — Stratagem" description="The page you were looking for couldn't be found." />
 	</head>

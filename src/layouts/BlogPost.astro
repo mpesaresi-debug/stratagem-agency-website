@@ -21,7 +21,7 @@ const formattedUpdated = updatedDate?.toLocaleDateString('en-US', {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={Astro.url.pathname.startsWith('/it') ? 'it' : 'en'}>
 	<head>
 		<BaseHead title={`${title} — Stratagem`} description={description || ''} image={heroImage} />
 	</head>

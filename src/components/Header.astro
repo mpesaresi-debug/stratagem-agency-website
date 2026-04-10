@@ -30,8 +30,8 @@ const itHref = isIT ? pathname : `/it${pathname === '/' ? '' : pathname}`;
 		<div class="flex items-center justify-between h-16">
 			<!-- Logo -->
 			<a href={isIT ? '/it' : '/'} class="flex items-center gap-2.5 group" aria-label="Stratagem - Home">
-				<img src="/images/logo-icon.png" alt="" class="h-8 w-auto" aria-hidden="true" />
-				<img src="/images/logo-text.png" alt="Stratagem Agency" class="h-6 w-auto" />
+				<img src="/images/logo-icon.png" alt="" width="38" height="32" class="h-8 w-auto" aria-hidden="true" />
+				<img src="/images/logo-text.png" alt="Stratagem Agency" width="301" height="24" class="h-6 w-auto" />
 			</a>
 
 			<!-- Desktop Nav -->
@@ -54,12 +54,12 @@ const itHref = isIT ? pathname : `/it${pathname === '/' ? '' : pathname}`;
 				<div class="flex items-center rounded-lg border border-white/20 overflow-hidden text-xs font-semibold">
 					<a
 						href={enHref}
-						class={`px-2.5 py-1.5 transition-colors ${!isIT ? 'bg-white/15 text-white' : 'text-slate-400 hover:text-white'}`}
+						class={`px-3 py-2 transition-colors ${!isIT ? 'bg-white/15 text-white' : 'text-slate-400 hover:text-white'}`}
 					>EN</a>
 					<span class="w-px h-4 bg-white/20"></span>
 					<a
 						href={itHref}
-						class={`px-2.5 py-1.5 transition-colors ${isIT ? 'bg-white/15 text-white' : 'text-slate-400 hover:text-white'}`}
+						class={`px-3 py-2 transition-colors ${isIT ? 'bg-white/15 text-white' : 'text-slate-400 hover:text-white'}`}
 					>IT</a>
 				</div>
 				<a
