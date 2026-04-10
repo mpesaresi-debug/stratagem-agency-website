@@ -19,6 +19,9 @@ const itURL = new URL(itPath, Astro.site);
 ---
 
 <meta charset="utf-8" />
+{import.meta.env.PUBLIC_CF_BEACON_TOKEN && (
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={`{"token":"${import.meta.env.PUBLIC_CF_BEACON_TOKEN}"}`}></script>
+)}
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <meta name="generator" content={Astro.generator} />
