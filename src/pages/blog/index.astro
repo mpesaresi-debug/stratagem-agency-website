@@ -75,7 +75,7 @@ const posts = (await getCollection('blog')).sort(
 									<p class="text-sm text-gray-500 leading-relaxed flex-1">{post.data.description}</p>
 								)}
 								<a href={`/blog/${post.id}/`} class="mt-4 flex items-center gap-1.5 text-blue-600 hover:text-blue-700 text-xs font-semibold transition-colors">
-									Read more
+									Read more<span class="sr-only"> about {post.data.title}</span>
 									<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 								</a>
 							</div>
