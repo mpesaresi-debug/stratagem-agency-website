@@ -10,5 +10,12 @@
 	"observability": {
 		"enabled": true
 	},
-	"upload_source_maps": true
+	"upload_source_maps": true,
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "stratagem-contact-forms",
+			"database_id": "7ff40b2e-2694-4abf-a88b-9984da79b69f"
+		}
+	]
 }

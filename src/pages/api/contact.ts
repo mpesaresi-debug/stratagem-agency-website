@@ -20,6 +20,7 @@ const GOAL_LABELS: Record<string, string> = {
 export async function POST({ request, locals }: APIContext) {
 	const env = (locals as any).runtime?.env ?? {};
 	const apiKey: string | undefined = env.RESEND_API_KEY ?? import.meta.env.RESEND_API_KEY;
+	const db: D1Database | undefined = env.DB;
 
 	let formData: FormData;
 	try {
@@ -139,6 +140,18 @@ export async function POST({ request, locals }: APIContext) {
 	} catch (err) {
 		console.error('[contact] fetch failed', err);
 		return Response.redirect(new URL(`${redirectBase}?error=true`, origin), 303);
+	}
+
+	// Save to D1
+	if (db) {
+		try {
+			await db.prepare(
+				`INSERT INTO contact_submissions (first_name, last_name, email, company, goal, message, locale, submitted_at)
+				 VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))`
+			).bind(firstName, lastName, email, company || null, goalRaw || null, message || null, locale).run();
+		} catch (err) {
+			console.error('[contact] D1 insert failed', err);
+		}
 	}
 
 	return Response.redirect(new URL(`${redirectBase}?success=true`, origin), 303);
