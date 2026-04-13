@@ -9,12 +9,14 @@ const navLinks = isIT
 		{ href: `${base}/about`, label: 'Chi Siamo' },
 		{ href: `${base}/blog`, label: 'Blog' },
 		{ href: `${base}/contact`, label: 'Contattaci' },
+		{ href: 'https://bi-saas-two.vercel.app/overview', label: 'Dashboard', external: true },
 	]
 	: [
 		{ href: '/services', label: 'Services' },
 		{ href: '/about', label: 'About' },
 		{ href: '/blog', label: 'Blog' },
 		{ href: '/contact', label: 'Contact' },
+		{ href: 'https://bi-saas-two.vercel.app/overview', label: 'Dashboard', external: true },
 	];
 
 const ctaLabel = isIT ? 'Prenota una Call' : 'Schedule a Meeting';
@@ -42,12 +44,13 @@ const itHref = isIT ? pathname : `/it${pathname === '/' ? '' : pathname}`;
 
 			<!-- Desktop Nav -->
 			<nav class="hidden md:flex items-center gap-7" aria-label="Main navigation">
-				{navLinks.map(({ href, label }) => (
+				{navLinks.map(({ href, label, external }) => (
 					<a
 						href={href}
 						class={`text-sm font-medium transition-colors hover:text-white ${
-							pathname.startsWith(href) ? 'text-white' : 'text-slate-300'
+							!external && pathname.startsWith(href) ? 'text-white' : 'text-slate-300'
 						}`}
+						{...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 					>
 						{label}
 					</a>
@@ -99,14 +102,15 @@ const itHref = isIT ? pathname : `/it${pathname === '/' ? '' : pathname}`;
 	<!-- Mobile Menu -->
 	<div id="mobile-menu" class="md:hidden hidden border-t border-white/10 bg-[#0a1228]">
 		<div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
-			{navLinks.map(({ href, label }) => (
+			{navLinks.map(({ href, label, external }) => (
 				<a
 					href={href}
 					class={`py-2.5 px-3 rounded-lg text-sm font-medium transition-colors ${
-						pathname.startsWith(href)
+						!external && pathname.startsWith(href)
 							? 'bg-white/10 text-white'
 							: 'text-slate-300 hover:text-white hover:bg-white/5'
 					}`}
+					{...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 				>
 					{label}
 				</a>
