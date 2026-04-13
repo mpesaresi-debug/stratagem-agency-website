@@ -3,7 +3,7 @@ title: "L'Affiliate Marketing Offre un Mix Diversificato di Publisher"
 description: "Quando si tratta di sfruttare l'affiliate marketing per far crescere il tuo business, definire il tuo mix di publisher è una delle decisioni più importanti che prenderai."
 pubDate: 2024-04-19
 
-heroImage: "https://images.pexels.com/photos/3861957/pexels-photo-3861957.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+heroImage: "https://images.pexels.com/photos/3861957/pexels-photo-3861957.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&q=65"
 tags: ["Affiliate Marketing", "Publisher", "Strategia"]
 ---
 

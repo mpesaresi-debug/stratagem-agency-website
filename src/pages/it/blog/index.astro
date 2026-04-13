@@ -32,11 +32,19 @@ const posts = (await getCollection('blog-it')).sort(
 				<p class="text-gray-500 text-center py-16">Nessun articolo ancora. Torna presto.</p>
 			) : (
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					{posts.map((post) => (
+					{posts.map((post, i) => (
 						<article class="group flex flex-col rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition-all duration-200 overflow-hidden bg-white">
 							{post.data.heroImage ? (
 								<div class="aspect-[16/9] overflow-hidden bg-gray-50">
-									<img src={post.data.heroImage} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+									<img
+										src={post.data.heroImage}
+										alt={post.data.title}
+										class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+										loading={i === 0 ? 'eager' : 'lazy'}
+										fetchpriority={i === 0 ? 'high' : 'auto'}
+										width="800"
+										height="450"
+									/>
 								</div>
 							) : (
 								<div class="aspect-[16/9] bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">

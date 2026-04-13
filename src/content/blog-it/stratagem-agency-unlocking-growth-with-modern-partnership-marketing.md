@@ -3,7 +3,7 @@ title: "Stratagem Agency: Sprigiona la Crescita con il Partnership Marketing Mod
 description: "Stratagem Agency aiuta i brand D2C a raggiungere una crescita esponenziale attraverso un approccio al partnership marketing multicanale e basato sui dati."
 pubDate: 2024-09-11
 
-heroImage: "https://images.pexels.com/photos/4345104/pexels-photo-4345104.jpeg?auto=compress&cs=tinysrgb&w=800&h=450&fit=crop"
+heroImage: "https://images.pexels.com/photos/4345104/pexels-photo-4345104.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&q=65"
 tags: ["Partnership Marketing", "Strategia", "D2C"]
 ---
 
