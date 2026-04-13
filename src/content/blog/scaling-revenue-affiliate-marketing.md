@@ -2,7 +2,7 @@
 title: "Scaling High-Quality Revenue Through Affiliate Marketing"
 description: "How a leading design brand achieved +265% conversion rate, +14.6% AOV, and 16x ROAS through a performance-driven affiliate strategy."
 pubDate: 2025-04-13
-heroImage: "https://cdn.shopify.com/s/files/1/0808/0329/9656/files/279425287.jpg"
+heroImage: "https://lh3.googleusercontent.com/d/1kP-5VvU78OEFcoyU5Wu8KwZu5QNyXSLZ=w800"
 tags: ["Case Study", "Performance", "ROAS"]
 ---
 
