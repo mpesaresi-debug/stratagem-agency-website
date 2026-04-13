@@ -2,6 +2,8 @@
 title: "Come le Agenzie di Affiliate Marketing Possono Costruire Visibilità sull'AI"
 description: "L'AI sta diventando il modo in cui i buyer scoprono i professionisti. Ecco una strategia pratica per le agenzie di affiliazione per diventare parte di quelle risposte — attraverso contenuti, framework e presenza distribuita."
 pubDate: 2025-04-01
+
+heroImage: "https://images.unsplash.com/photo-JR5NaQmOSqo?w=800&h=450&fit=crop&q=80&auto=format"
 tags: ["Strategia", "AI", "Content Marketing"]
 ---
 

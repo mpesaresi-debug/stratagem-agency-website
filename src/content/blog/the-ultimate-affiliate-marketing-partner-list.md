@@ -2,6 +2,7 @@
 title: "The Ultimate Affiliate Marketing Partner List"
 description: "A comprehensive reference categorizing 11 affiliate publisher types — with typical commission ranges, conversion rates, and strategic considerations for each."
 pubDate: 2024-06-18
+heroImage: "https://images.unsplash.com/photo-ZhQDwP7otOc?w=800&h=450&fit=crop&q=80&auto=format"
 tags: ["Affiliate Marketing", "Publishers", "Reference"]
 ---
 

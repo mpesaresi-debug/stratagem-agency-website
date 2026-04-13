@@ -2,6 +2,8 @@
 title: "8 Strategie Essenziali per Catapultare la Crescita con i Referral dei Clienti"
 description: "I brand possono stimolare la crescita attraverso il referral marketing, con il 55% delle persone che scoprono nuovi brand tramite passaparola. Ecco 8 strategie concrete."
 pubDate: 2024-07-10
+
+heroImage: "https://images.unsplash.com/photo-K0aM-ztA76Q?w=800&h=450&fit=crop&q=80&auto=format"
 tags: ["Referral Marketing", "Crescita", "Acquisizione Clienti"]
 ---
 

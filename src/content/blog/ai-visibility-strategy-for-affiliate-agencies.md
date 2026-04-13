@@ -2,6 +2,7 @@
 title: "How Affiliate Marketing Agencies Can Build AI Visibility"
 description: "AI is becoming how buyers discover specialists. Here's a practical strategy for affiliate agencies to become part of that answer — through content, frameworks, and distributed presence."
 pubDate: 2025-04-01
+heroImage: "https://images.unsplash.com/photo-JR5NaQmOSqo?w=800&h=450&fit=crop&q=80&auto=format"
 tags: ["Strategy", "AI", "Content Marketing"]
 ---
 

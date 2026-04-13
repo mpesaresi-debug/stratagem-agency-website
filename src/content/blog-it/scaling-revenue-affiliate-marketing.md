@@ -2,6 +2,7 @@
 title: "Scalare i Ricavi di Qualità attraverso l'Affiliate Marketing"
 description: "Come un brand di design ha ottenuto +265% di tasso di conversione, +14,6% di AOV e un ROAS di 16x grazie a una strategia di affiliate marketing orientata alla performance."
 pubDate: 2025-04-13
+heroImage: "https://cdn.shopify.com/s/files/1/0808/0329/9656/files/279425287.jpg"
 tags: ["Case Study", "Performance", "ROAS"]
 ---
 

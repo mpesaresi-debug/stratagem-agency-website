@@ -2,6 +2,8 @@
 title: "Strategia: Programma di Referral Clienti"
 description: "Un piano strategico completo per costruire un programma di referral clienti — obiettivi, incentivi, investimenti necessari e ROI atteso."
 pubDate: 2024-07-20
+
+heroImage: "https://images.unsplash.com/photo-rgKX4o2xSqI?w=800&h=450&fit=crop&q=80&auto=format"
 tags: ["Referral Marketing", "Strategia", "Crescita"]
 ---
 

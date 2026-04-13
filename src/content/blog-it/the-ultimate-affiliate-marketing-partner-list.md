@@ -2,6 +2,8 @@
 title: "La Lista Definitiva dei Partner di Affiliate Marketing"
 description: "Una guida di riferimento completa che categorizza 11 tipologie di publisher affiliati — con range di commissioni tipiche, tassi di conversione e considerazioni strategiche per ciascuna."
 pubDate: 2024-06-18
+
+heroImage: "https://images.unsplash.com/photo-ZhQDwP7otOc?w=800&h=450&fit=crop&q=80&auto=format"
 tags: ["Affiliate Marketing", "Publisher", "Riferimento"]
 ---
 

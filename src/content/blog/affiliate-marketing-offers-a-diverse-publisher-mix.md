@@ -2,6 +2,7 @@
 title: "Affiliate Marketing Offers a Diverse Publisher Mix"
 description: "When it comes to leveraging affiliate marketing to grow your business, defining your publisher mix is one of the most important decisions you'll make."
 pubDate: 2024-04-19
+heroImage: "https://images.unsplash.com/photo-JKUTrJ4vK00?w=800&h=450&fit=crop&q=80&auto=format"
 tags: ["Affiliate Marketing", "Publishers", "Strategy"]
 ---
 

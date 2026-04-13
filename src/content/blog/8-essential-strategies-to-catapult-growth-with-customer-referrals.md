@@ -2,6 +2,7 @@
 title: "8 Essential Strategies to Catapult Growth with Customer Referrals"
 description: "Brands can boost growth through referral marketing — 55% of people discover new brands via word-of-mouth. Here are 8 actionable strategies to make your referral program work."
 pubDate: 2024-07-10
+heroImage: "https://images.unsplash.com/photo-K0aM-ztA76Q?w=800&h=450&fit=crop&q=80&auto=format"
 tags: ["Referral Marketing", "Growth", "Customer Acquisition"]
 ---
 
