@@ -2,7 +2,7 @@
 title: "Stratagem Agency: Unlocking Growth with Modern Partnership Marketing"
 description: "Stratagem Agency helps D2C brands unlock exponential growth through a data-driven, multi-channel approach to partnership marketing."
 pubDate: 2024-09-11
-heroImage: "https://images.pexels.com/photos/4345104/pexels-photo-4345104.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&q=65"
+heroImage: "https://images.pexels.com/photos/4345104/pexels-photo-4345104.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=480&h=270&fit=crop&q=70"
 tags: ["Partnership Marketing", "Strategy", "D2C"]
 ---
 

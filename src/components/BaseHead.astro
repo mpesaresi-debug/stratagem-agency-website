@@ -19,6 +19,10 @@ const itURL = new URL(itPath, Astro.site);
 ---
 
 <meta charset="utf-8" />
+<link rel="preconnect" href="https://images.pexels.com" />
+<link rel="preconnect" href="https://lh3.googleusercontent.com" />
+<link rel="dns-prefetch" href="https://images.pexels.com" />
+<link rel="dns-prefetch" href="https://lh3.googleusercontent.com" />
 {import.meta.env.PUBLIC_CF_BEACON_TOKEN && (
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={`{"token":"${import.meta.env.PUBLIC_CF_BEACON_TOKEN}"}`}></script>
 )}

@@ -2,7 +2,7 @@
 title: "Strategy: Customer Referral Program"
 description: "A complete strategic outline for building a customer referral program — goals, incentives, investment needs, and expected ROI."
 pubDate: 2024-07-20
-heroImage: "https://images.pexels.com/photos/7698826/pexels-photo-7698826.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop&q=65"
+heroImage: "https://images.pexels.com/photos/7698826/pexels-photo-7698826.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=480&h=270&fit=crop&q=70"
 tags: ["Referral Marketing", "Strategy", "Growth"]
 ---
 
