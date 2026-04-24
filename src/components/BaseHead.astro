@@ -30,6 +30,22 @@ const itURL = new URL(itPath, Astro.site);
 <link rel="icon" type="image/png" href="/favicon.png" />
 <meta name="generator" content={Astro.generator} />
 
+<!-- PWA -->
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#0a1228" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Stratagem" />
+<link rel="apple-touch-icon" href="/images/logo-icon.png" />
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+
 
 <!-- Canonical & hreflang -->
 <link rel="canonical" href={canonicalURL} />
