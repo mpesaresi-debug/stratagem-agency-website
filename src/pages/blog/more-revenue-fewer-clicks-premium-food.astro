@@ -1,0 +1,268 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+/*
+ * Case study — premium Italian food (Olivieri 1882, anonymized in line with the
+ * Guzzini case study precedent).
+ *
+ * Figures from performance_by_day, advertiser_id 5895183. Two comparable
+ * 12-month windows: Aug 2024 – Aug 2025 vs Aug 2025 – Aug 2026.
+ * Growth rates and ratios only — no absolute revenue, order or click volumes.
+ *
+ * NOTE: ROAS fell over the period (28.4× → 13.1×) as commission investment rose,
+ * so this page does not claim a ROAS improvement — only that it stayed above 13×.
+ */
+const deltas = [
+	{ metric: 'Affiliate revenue', change: '+77%', note: 'year over year' },
+	{ metric: 'Conversion rate', change: '+82%', note: 'clicks to orders' },
+	{ metric: 'Conversions', change: '+66%', note: 'on lower traffic' },
+	{ metric: 'Average order value', change: '+7%', note: 'basket size' },
+	{ metric: 'Click volume', change: '−9%', note: 'deliberately reduced' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+	<BaseHead
+		title="Case Study: More Revenue From Fewer Clicks — Stratagem"
+		description="How a premium Italian food brand grew affiliate revenue 77% year over year while click volume fell 9% — by fixing the partner mix instead of chasing traffic."
+	/>
+</head>
+<body class="bg-white text-gray-900">
+	<Header />
+	<main>
+
+		<!-- ─── HERO ─────────────────────────────────────────────────────── -->
+		<section class="bg-[#0a1228] pt-32 pb-24 relative overflow-hidden">
+			<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent pointer-events-none"></div>
+			<div class="max-w-5xl mx-auto px-6 lg:px-8 relative">
+
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-widest mb-7">
+					Case Study
+				</div>
+
+				<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl">
+					More Revenue From Fewer Clicks
+				</h1>
+				<p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-12 max-w-3xl">
+					How a premium Italian food brand grew affiliate revenue by more than three quarters
+					while sending less traffic than the year before
+				</p>
+
+				<div class="grid grid-cols-3 gap-4 sm:gap-10 pt-10 border-t border-white/10 mb-12">
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+77%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Affiliate Revenue YoY</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+82%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Conversion Rate</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">−9%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Click Volume</div>
+					</div>
+				</div>
+
+				<a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors duration-200 shadow-lg shadow-blue-900/40">
+					Speak With Us
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- ─── OVERVIEW ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+					<div>
+						<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Overview</p>
+						<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-tight">
+							A seasonal brand with a volume habit
+						</h2>
+						<p class="text-gray-500 leading-relaxed mb-4">
+							Our client is a premium Italian food producer with a strong heritage and a sharply
+							seasonal demand curve. The affiliate program was healthy on paper, but growth was
+							being pursued the expensive way — by adding traffic.
+						</p>
+						<p class="text-gray-500 leading-relaxed">
+							In a seasonal category, more traffic outside the buying window is not just wasted; it
+							dilutes the numbers you use to make decisions the following year.
+						</p>
+					</div>
+					<div class="p-8 rounded-2xl bg-gray-50 border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-4">The insight</h3>
+						<p class="text-gray-500 leading-relaxed text-sm">
+							Revenue grew 77% while click volume fell 9%. Every point of that growth came from
+							conversion and basket size rather than reach — the program did more with a smaller,
+							better-targeted flow of visitors.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── APPROACH ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-gray-50 reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Our Approach</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					Fewer, better partners — timed to the season
+				</h2>
+
+				<div class="space-y-8">
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">01</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Cut the traffic that never converted</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Partners delivering volume without orders were wound down rather than optimized.
+								Click volume fell as a direct result — and that was the intended outcome, not a
+								side effect.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">02</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Concentrate spend in the buying window</h3>
+							<p class="text-gray-500 leading-relaxed">
+								For a seasonal producer, when a placement runs matters as much as where. Investment
+								and partner activity were weighted toward the periods when the category actually
+								sells.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">03</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Reward baskets, not clicks</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Commission structures were tuned to favor larger orders and gift-set purchases,
+								which lifted average order value alongside conversion.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── RESULTS ───────────────────────────────────────────────────── -->
+		<section class="py-20 bg-[#0a1228] reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Results</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Less traffic, more of everything else
+				</h2>
+				<p class="text-slate-400 leading-relaxed mb-12 max-w-3xl">
+					Two comparable twelve-month windows, measured on the affiliate channel.
+				</p>
+
+				<div class="space-y-3">
+					{deltas.map(({ metric, change, note }) => (
+						<div class="flex items-center justify-between gap-5 p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
+							<div>
+								<div class="text-base sm:text-lg font-semibold text-white">{metric}</div>
+								<div class="text-sm text-slate-400">{note}</div>
+							</div>
+							<div class="text-2xl sm:text-3xl font-bold text-blue-400 tabular-nums whitespace-nowrap">{change}</div>
+						</div>
+					))}
+				</div>
+
+				<p class="text-xs text-slate-500 mt-6">
+					Affiliate channel performance, year over year. Prior 12 months: Aug 2024 – Aug 2025.
+					Last 12 months: Aug 2025 – Aug 2026. Return on ad spend remained above 13× as commission
+					investment increased to fund the growth. Absolute revenue and traffic volumes are not
+					disclosed.
+				</p>
+			</div>
+		</section>
+
+		<!-- ─── TAKEAWAYS ─────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Key Takeaways</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					What this case study tells us
+				</h2>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Falling clicks can be a good sign</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Traffic is an input, not a result. Cutting the volume that never converted made every
+							other number better.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Timing is a lever in seasonal categories</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Concentrating partner activity in the buying window beats spreading the same budget
+							evenly across the year.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Growth can be worth paying for</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Commission investment rose to fund this growth, and return stayed above 13×. The
+							question is never "is spend up" but "what did the spend buy".
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── CTA ───────────────────────────────────────────────────────── -->
+		<section class="py-24 bg-gradient-to-br from-blue-600 to-blue-700 reveal">
+			<div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Paying for Traffic That Doesn't Convert?
+				</h2>
+				<p class="text-blue-100 text-lg mb-10 max-w-xl mx-auto">
+					We find out which partners are actually earning their commission — and rebuild the mix
+					around the ones that are.
+				</p>
+				<a href="/contact" class="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl text-lg transition-colors duration-200 shadow-2xl shadow-blue-800/30">
+					Book a Strategy Call
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<div class="bg-white py-8 border-t border-gray-100">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<a href="/blog" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors font-medium">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+					Back to Blog
+				</a>
+			</div>
+		</div>
+
+	</main>
+	<Footer />
+</body>
+</html>
+
+<style>
+	.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+	.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.08 }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

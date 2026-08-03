@@ -1,0 +1,345 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+/*
+ * Case study — luxury apparel (DAMA / Paul & Shark, anonymized in line with the
+ * Guzzini case study precedent).
+ *
+ * Every figure below comes from performance_by_day in the Stratagem BI platform,
+ * advertiser_id 6065915, currency EUR. Two comparable 12-month windows:
+ *   Last 12 months  2025-08-03 → 2026-08-02
+ *   Prior 12 months 2024-08-03 → 2025-08-02
+ */
+/*
+ * Growth rates and ratios only — absolute revenue and order counts are
+ * deliberately not published.
+ */
+const deltas = [
+	{ metric: 'Affiliate revenue', change: '+912%', note: 'more than tenfold' },
+	{ metric: 'Conversions', change: '+648%', note: 'seven and a half times' },
+	{ metric: 'Clicks', change: '+2,411%', note: 'twenty-five times' },
+	{ metric: 'Return on ad spend', change: '+36%', note: '10.1× → 13.7×' },
+	{ metric: 'Average order value', change: '+35%', note: 'full-price demand' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+	<BaseHead
+		title="Case Study: Scaling a Luxury Apparel Affiliate Program 10× — Stratagem"
+		description="How a heritage Italian apparel brand grew affiliate revenue by 912% year over year while improving ROAS from 10.1× to 13.7× and lifting AOV 35%."
+	/>
+</head>
+<body class="bg-white text-gray-900">
+	<Header />
+	<main>
+
+		<!-- ─── HERO ─────────────────────────────────────────────────────── -->
+		<section class="bg-[#0a1228] pt-32 pb-24 relative overflow-hidden">
+			<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent pointer-events-none"></div>
+			<div class="max-w-5xl mx-auto px-6 lg:px-8 relative">
+
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-widest mb-7">
+					Case Study
+				</div>
+
+				<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl">
+					Scaling a Luxury Apparel Affiliate Program 10× in 12 Months
+				</h1>
+				<p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-12 max-w-3xl">
+					How a heritage Italian apparel brand grew affiliate revenue more than tenfold year
+					over year — and got more efficient while doing it
+				</p>
+
+				<!-- KPI Bar -->
+				<div class="grid grid-cols-3 gap-4 sm:gap-10 pt-10 border-t border-white/10 mb-12">
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+912%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Affiliate Revenue YoY</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">13.7×</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Return on Ad Spend</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+35%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Average Order Value</div>
+					</div>
+				</div>
+
+				<a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors duration-200 shadow-lg shadow-blue-900/40">
+					Speak With Us
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- ─── OVERVIEW ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<div>
+						<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Overview</p>
+						<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-tight">
+							A heritage brand with an underused channel
+						</h2>
+						<p class="text-gray-500 leading-relaxed mb-4">
+							Our client is a heritage Italian apparel house selling at a premium price point across
+							European and international markets. The brand had an affiliate program in place, but
+							it was operating well below its potential — a small partner base, modest traffic, and
+							revenue that barely registered against other channels.
+						</p>
+						<p class="text-gray-500 leading-relaxed">
+							The mandate was not simply "more revenue". At this price point, the wrong partner mix
+							erodes brand positioning and margin faster than it adds sales. Growth had to come
+							without discounting the brand.
+						</p>
+					</div>
+					<div class="space-y-4">
+						<div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50 transition-all duration-300">
+							<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900 mb-1">Scale the Channel</div>
+								<div class="text-sm text-gray-500">Grow affiliate from a rounding error into a material revenue line</div>
+							</div>
+						</div>
+						<div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50 transition-all duration-300">
+							<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900 mb-1">Protect Price Integrity</div>
+								<div class="text-sm text-gray-500">Grow without leaning on discount and coupon partners</div>
+							</div>
+						</div>
+						<div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50 transition-all duration-300">
+							<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900 mb-1">Improve Efficiency While Scaling</div>
+								<div class="text-sm text-gray-500">Most programs get less efficient as they grow — this one had to get better</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── THE CHALLENGE ─────────────────────────────────────────────── -->
+		<section class="py-20 bg-gray-50 reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">The Challenge</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+					Growth and margin usually pull in opposite directions
+				</h2>
+				<p class="text-gray-500 leading-relaxed mb-12 max-w-3xl">
+					Scaling a luxury program is a different problem from scaling a mass-market one. Three
+					tensions shaped the approach.
+				</p>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="p-6 rounded-2xl bg-white border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-2">The Discount Trap</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							The fastest way to grow affiliate volume is to open the program to coupon and
+							incentive partners. For a premium brand that buys short-term revenue at the cost of
+							pricing power and long-term equity.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl bg-white border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-2">A Thin Partner Base</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							With a small number of active partners, the program was exposed: performance
+							depended on a handful of relationships, and there was little competitive tension to
+							improve placements.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl bg-white border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-2">Efficiency at Scale</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Programs typically dilute as they grow — cost per conversion rises as you reach
+							beyond the best partners. Holding ROAS while multiplying volume required active
+							payout management, not a set-and-forget commission rate.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── APPROACH ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Our Approach</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					Recruit wide, reward narrow
+				</h2>
+
+				<div class="space-y-8">
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">01</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Aggressive, selective recruitment</h3>
+							<p class="text-gray-500 leading-relaxed">
+								We expanded the partner base substantially — content publishers, editorial and
+								fashion media, and high-intent comparison and loyalty properties whose audiences
+								matched the brand's customer profile. Traffic grew more than 25× year over year,
+								but every partner was assessed for brand fit before activation.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">02</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Commission structures that reward value</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Rather than a flat rate across the program, payouts were tiered to reward the
+								partners driving genuinely incremental, full-price orders. That is the single
+								biggest reason average order value rose 35% while the program was growing at
+								its fastest.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">03</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Continuous reallocation</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Ongoing performance review let us scale what worked and cut what did not, month by
+								month. Efficiency improved as the program grew — the opposite of the usual
+								dilution curve.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── RESULTS ───────────────────────────────────────────────────── -->
+		<section class="py-20 bg-[#0a1228] reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Results</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Ten times the revenue, at a better return
+				</h2>
+				<p class="text-slate-400 leading-relaxed mb-12 max-w-3xl">
+					Two comparable twelve-month windows, measured on the affiliate channel.
+				</p>
+
+				<div class="space-y-3">
+					{deltas.map(({ metric, change, note }) => (
+						<div class="flex items-center justify-between gap-5 p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
+							<div>
+								<div class="text-base sm:text-lg font-semibold text-white">{metric}</div>
+								<div class="text-sm text-slate-400">{note}</div>
+							</div>
+							<div class="text-2xl sm:text-3xl font-bold text-blue-400 tabular-nums whitespace-nowrap">{change}</div>
+						</div>
+					))}
+				</div>
+
+				<p class="text-xs text-slate-500 mt-6">
+					Affiliate channel performance, year over year. Prior 12 months: Aug 2024 – Aug 2025.
+					Last 12 months: Aug 2025 – Aug 2026. ROAS is affiliate revenue divided by total channel
+					cost. Absolute revenue and order volumes are not disclosed.
+				</p>
+			</div>
+		</section>
+
+		<!-- ─── TAKEAWAYS ─────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Key Takeaways</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					What this case study tells us
+				</h2>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Scale and efficiency are not a trade-off</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Revenue grew more than tenfold while ROAS improved from 10.1× to 13.7×. Disciplined
+							payout management is what makes that possible.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Partner mix protects price</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Average order value rose 35% during the fastest growth period — evidence that the
+							program scaled on full-price demand rather than discounting.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Reach precedes revenue</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Clicks grew 25× before revenue followed. Building a wide, well-matched partner base is
+							the leading indicator worth managing.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── CTA ───────────────────────────────────────────────────────── -->
+		<section class="py-24 bg-gradient-to-br from-blue-600 to-blue-700 reveal">
+			<div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Looking to Scale Your Affiliate Channel?
+				</h2>
+				<p class="text-blue-100 text-lg mb-10 max-w-xl mx-auto">
+					We help premium brands grow the affiliate channel without discounting their way there.
+					Let's talk about what's possible for your program.
+				</p>
+				<a href="/contact" class="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl text-lg transition-colors duration-200 shadow-2xl shadow-blue-800/30">
+					Book a Strategy Call
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- Back to blog -->
+		<div class="bg-white py-8 border-t border-gray-100">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<a href="/blog" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors font-medium">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+					Back to Blog
+				</a>
+			</div>
+		</div>
+
+	</main>
+	<Footer />
+</body>
+</html>
+
+<style>
+	.reveal {
+		opacity: 0;
+		transform: translateY(28px);
+		transition: opacity 0.65s ease, transform 0.65s ease;
+	}
+	.reveal.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.08 }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

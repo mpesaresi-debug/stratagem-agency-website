@@ -1,0 +1,494 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+/*
+ * PartnerBoost EVOLVE 2026 — trade-show landing page.
+ *
+ * Reached by scanning the QR code on our badge, button and business cards, so
+ * the page is static (no server render), phone-first, and pulls in no external
+ * assets. Views are logged to D1 from the browser via /api/evolve-view.
+ *
+ * QR code URL:
+ *   https://stratagem.agency/evolve?utm_source=badge&utm_medium=qr&utm_campaign=evolve2026
+ *
+ * ── Fill these in before the show ─────────────────────────────────────────
+ * Anything still set to PLACEHOLDER is simply not rendered, so the page is
+ * always safe to deploy — it just shows one option fewer. `npm run dev` prints
+ * a banner listing whatever is still missing.
+ */
+const PLACEHOLDER = 'PLACEHOLDER';
+
+const links = {
+	/** Calendly / scheduling link. Falls back to /contact until this is set. */
+	booking: 'https://calendly.com/italypoint_muzio/30-minute-call',
+	/** Company profile PDF — put the file in public/files/ and point here. */
+	profilePdf: '/files/stratagem-company-profile.pdf',
+	/** WeChat QR image — put it in public/images/evolve/ and point here. */
+	wechatQr: PLACEHOLDER,
+	/** e.g. https://wa.me/15551234567 */
+	whatsapp: 'https://wa.me/16178990119',
+	linkedin: 'https://www.linkedin.com/company/stratagem-agency-itpt',
+	email: 'contact@stratagem.agency',
+};
+
+const isSet = (value: string) => Boolean(value) && value !== PLACEHOLDER;
+const missing = Object.entries(links)
+	.filter(([, value]) => !isSet(value))
+	.map(([key]) => key);
+
+// Never leave the main CTA dead: until the scheduling link lands, send people
+// to the contact form, which already reaches us.
+const bookingHref = isSet(links.booking) ? links.booking : '/contact';
+
+// Stratagem client brands (agency afbc1440 in the BI platform). Names only —
+// no metrics attached, so an anonymized case study cannot be matched to a
+// specific brand. Excludes other agencies' advertisers and our own internal
+// program.
+const brands = [
+	'Guzzini',
+	'Paul & Shark',
+	'Corneliani',
+	'Superga',
+	'Kappa',
+	'Sebago',
+	'Borbonese',
+	'Sidi',
+	'Banwood',
+	'Olivieri 1882',
+	'Native To Wear',
+	"Lega del Filo d'Oro",
+];
+
+// Case studies are published anonymized by sector, deliberately not tied to a
+// brand name above. Growth rates only — no absolute revenue or order counts.
+const caseStudies = [
+	{
+		sector: 'Luxury Apparel',
+		headline: '+912% affiliate revenue',
+		work: 'Ten times the revenue year over year, with ROAS up 36% and AOV up 35%',
+		href: '/blog/scaling-luxury-apparel-affiliate-revenue',
+	},
+	{
+		sector: 'Design & Homeware',
+		headline: '+265% conversion rate',
+		work: '16× ROAS through a performance-driven partner and optimization strategy',
+		href: '/blog/scaling-revenue-affiliate-marketing',
+	},
+	{
+		sector: 'Premium Food',
+		headline: '+77% revenue on −9% clicks',
+		work: 'Conversion rate up 82% by cutting traffic that never converted',
+		href: '/blog/more-revenue-fewer-clicks-premium-food',
+	},
+	{
+		sector: "Children's Lifestyle",
+		headline: '+72% revenue, flat traffic',
+		work: 'Conversion rate up 81% without buying a single extra click',
+		href: '/blog/converting-existing-traffic-childrens-lifestyle',
+	},
+	{
+		sector: 'Performance Sportswear',
+		headline: '10.4× ROAS from launch',
+		work: 'A program built from zero to full ramp in five months',
+		href: '/blog/launching-affiliate-program-sportswear',
+	},
+];
+
+const iconClass = 'flex-shrink-0';
+---
+
+<Layout
+	title="Stratagem Agency — EVOLVE 2026"
+	description="Affiliate, partnership, and influencer marketing for Chinese brands expanding into global markets. Meet Stratagem at PartnerBoost EVOLVE 2026."
+	noindex={true}
+>
+	{
+		import.meta.env.DEV && missing.length > 0 && (
+			<div class="fixed bottom-24 left-4 z-[60] max-w-xs rounded-xl border border-amber-400/40 bg-amber-950/95 p-4 text-xs text-amber-100 shadow-xl sm:bottom-4">
+				<p class="mb-1 font-semibold text-amber-300">Dev only — still PLACEHOLDER</p>
+				<p class="leading-relaxed">{missing.join(', ')}</p>
+				<p class="mt-2 leading-relaxed text-amber-200/70">
+					Set them at the top of src/pages/evolve.astro. Until then these blocks are hidden.
+				</p>
+			</div>
+		)
+	}
+
+	<!-- Hero -->
+	<section class="relative overflow-hidden bg-[#0a1228] pt-28 pb-16 sm:pt-32 sm:pb-20">
+		<div class="pointer-events-none absolute inset-0" aria-hidden="true">
+			<div
+				class="absolute inset-0"
+				style="background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.15) 0%, transparent 70%);"
+			>
+			</div>
+		</div>
+
+		<div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<!-- Certification badge -->
+				<div
+					class="mb-7 inline-flex items-center gap-2.5 rounded-full border border-amber-400/20 bg-amber-400/[0.07] py-1.5 pr-4 pl-2"
+				>
+					<img
+						src="/images/badges/gold-agency-partner.webp"
+						alt=""
+						width="60"
+						height="26"
+						class="h-5 w-auto"
+						aria-hidden="true"
+					/>
+					<span class="text-xs font-medium text-amber-200">
+						Gold Certified impact.com Partner Agency
+					</span>
+				</div>
+
+				<h1 class="mb-5 text-4xl leading-[1.1] font-bold text-white sm:text-5xl lg:text-6xl">
+					Helping Chinese Brands<br class="hidden sm:block" />
+					<span
+						class="bg-clip-text text-transparent"
+						style="background-image: linear-gradient(135deg, #3b82f6 0%, #818cf8 100%);"
+					>
+						Grow in Global Markets
+					</span>
+				</h1>
+
+				<p class="mb-9 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+					Affiliate, partnership, and influencer marketing for brands expanding into the United
+					States, Europe and beyond.
+				</p>
+
+				<!-- Primary CTA -->
+				<div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+					<a
+						href={bookingHref}
+						target={isSet(links.booking) ? '_blank' : undefined}
+						rel={isSet(links.booking) ? 'noopener noreferrer' : undefined}
+						class="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-7 py-4 text-base font-semibold text-white shadow-lg shadow-blue-900/40 transition-colors hover:bg-blue-500"
+					>
+						Book a Meeting
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class={iconClass}
+							aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+						>
+					</a>
+
+					{
+						isSet(links.profilePdf) && (
+							<a
+								href={links.profilePdf}
+								download
+								class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
+							>
+								<svg
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.25"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class={iconClass}
+									aria-hidden="true"
+								>
+									<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+									<polyline points="7 10 12 15 17 10" />
+									<line x1="12" y1="15" x2="12" y2="3" />
+								</svg>
+								Download Company Profile (PDF)
+							</a>
+						)
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Brands -->
+	<section class="bg-white py-16 sm:py-20">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<p class="mb-3 text-sm font-semibold tracking-widest text-blue-600 uppercase">Clients</p>
+			<h2 class="mb-3 max-w-2xl text-3xl leading-tight font-bold text-gray-900 sm:text-4xl">
+				Brands We've Helped Grow
+			</h2>
+			<p class="mb-10 max-w-xl text-base leading-relaxed text-gray-500">
+				Heritage and design-led brands across apparel, footwear, homeware and food.
+			</p>
+
+			<div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+				{
+					brands.map((brand) => (
+						<div class="flex items-center justify-center rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-5 text-center">
+							<span class="text-sm font-semibold tracking-tight text-gray-700 sm:text-base">{brand}</span>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Case studies -->
+	<section class="bg-gray-50 py-16 sm:py-20">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<p class="mb-3 text-sm font-semibold tracking-widest text-blue-600 uppercase">
+				Case Studies
+			</p>
+			<h2 class="mb-3 max-w-2xl text-3xl leading-tight font-bold text-gray-900 sm:text-4xl">
+				What That Growth Looks Like
+			</h2>
+			<p class="mb-10 max-w-xl text-base leading-relaxed text-gray-500">
+				Published by sector. Client results, reported as growth rates.
+			</p>
+
+			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+				{
+					caseStudies.map(({ sector, headline, work, href }) => (
+						<a
+							href={href}
+							class="group block rounded-2xl border border-gray-100 bg-white p-6 transition-all duration-200 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-100"
+						>
+							<p class="mb-3 text-xs font-semibold tracking-widest text-blue-600 uppercase">
+								{sector}
+							</p>
+							<h3 class="mb-2 text-xl leading-tight font-bold tracking-tight text-gray-900">
+								{headline}
+							</h3>
+							<p class="text-sm leading-relaxed text-gray-500">{work}</p>
+							<span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
+								Read the case study
+								<svg
+									width="14"
+									height="14"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2.5"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="transition-transform duration-200 group-hover:translate-x-0.5"
+									aria-hidden="true"
+								>
+									<path d="M5 12h14M12 5l7 7-7 7" />
+								</svg>
+							</span>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact -->
+	<section class="bg-[#0a1228] py-16 sm:py-20">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<p class="mb-3 text-sm font-semibold tracking-widest text-blue-400 uppercase">Connect</p>
+			<h2 class="mb-10 max-w-2xl text-3xl leading-tight font-bold text-white sm:text-4xl">
+				Let's keep the conversation going
+			</h2>
+
+			<div class="grid grid-cols-1 gap-10 lg:grid-cols-3">
+				<!-- Channels -->
+				<div class="flex flex-col gap-3 lg:col-span-2">
+					<a
+						href={`mailto:${links.email}`}
+						class="group flex items-center gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.04] p-5 transition-colors hover:border-blue-500/30 hover:bg-white/[0.07]"
+					>
+						<span
+							class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-blue-600/15 text-blue-400 transition-colors group-hover:bg-blue-600 group-hover:text-white"
+						>
+							<svg
+								width="19"
+								height="19"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.9"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								aria-hidden="true"
+							>
+								<rect x="2" y="4" width="20" height="16" rx="2"></rect>
+								<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+							</svg>
+						</span>
+						<span class="min-w-0">
+							<span class="block text-sm font-semibold text-white">Email</span>
+							<span class="block truncate text-sm text-slate-400">{links.email}</span>
+						</span>
+					</a>
+
+					<a
+						href={links.linkedin}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group flex items-center gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.04] p-5 transition-colors hover:border-blue-500/30 hover:bg-white/[0.07]"
+					>
+						<span
+							class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-blue-600/15 text-blue-400 transition-colors group-hover:bg-blue-600 group-hover:text-white"
+						>
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+								<path
+									d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+								></path>
+							</svg>
+						</span>
+						<span class="min-w-0">
+							<span class="block text-sm font-semibold text-white">LinkedIn</span>
+							<span class="block truncate text-sm text-slate-400">Connect with us</span>
+						</span>
+					</a>
+
+					{
+						isSet(links.whatsapp) && (
+							<a
+								href={links.whatsapp}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="group flex items-center gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.04] p-5 transition-colors hover:border-blue-500/30 hover:bg-white/[0.07]"
+							>
+								<span class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-blue-600/15 text-blue-400 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+										<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.174.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.82 9.82 0 0 1 2.892 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.82 11.82 0 0 0 20.464 3.488" />
+									</svg>
+								</span>
+								<span class="min-w-0">
+									<span class="block text-sm font-semibold text-white">WhatsApp</span>
+									<span class="block truncate text-sm text-slate-400">Message us directly</span>
+								</span>
+							</a>
+						)
+					}
+				</div>
+
+				<!-- WeChat -->
+				{
+					isSet(links.wechatQr) && (
+						<div class="rounded-2xl border border-white/[0.07] bg-white/[0.04] p-6 text-center">
+							<div class="mb-4 flex items-center justify-center gap-2.5">
+								<span class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600/15 text-blue-400">
+									<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+										<path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.33.33 0 0 0 .167-.054l1.903-1.114a.86.86 0 0 1 .717-.098 10.2 10.2 0 0 0 2.837.403c.276 0 .543-.027.813-.05-.17-.582-.263-1.192-.263-1.82 0-3.746 3.605-6.783 8.05-6.783.28 0 .552.02.822.05-.684-3.554-4.377-6.28-8.822-6.28zm-2.735 3.53a1.07 1.07 0 1 1 0 2.14 1.07 1.07 0 0 1 0-2.14zm5.47 0a1.07 1.07 0 1 1 0 2.14 1.07 1.07 0 0 1 0-2.14zM24 14.85c0-3.378-3.25-6.132-7.267-6.132-4.017 0-7.266 2.754-7.266 6.132 0 3.379 3.25 6.133 7.266 6.133.84 0 1.658-.113 2.408-.328a.72.72 0 0 1 .598.082l1.586.928a.28.28 0 0 0 .14.045.24.24 0 0 0 .242-.246c0-.06-.024-.12-.04-.177l-.325-1.234a.49.49 0 0 1 .177-.554C23.024 18.354 24 16.694 24 14.85zm-9.62-1.965a.892.892 0 1 1 0 1.784.892.892 0 0 1 0-1.784zm4.559 0a.892.892 0 1 1 0 1.784.892.892 0 0 1 0-1.784z" />
+									</svg>
+								</span>
+								<span class="text-sm font-semibold text-white">WeChat</span>
+							</div>
+							<img
+								src={links.wechatQr}
+								alt="Scan to add us on WeChat"
+								width="200"
+								height="200"
+								loading="lazy"
+								class="mx-auto h-auto w-full max-w-[180px] rounded-xl bg-white p-2"
+							/>
+							<p class="mt-4 text-xs text-slate-400">Scan to add us on WeChat</p>
+						</div>
+					)
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Signature -->
+	<section class="border-t border-white/[0.06] bg-[#060d1f] py-10">
+		<div
+			class="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 text-center sm:flex-row sm:justify-between sm:text-left lg:px-8"
+		>
+			<div class="flex items-center gap-3">
+				<picture>
+					<source srcset="/images/logo-icon.webp" type="image/webp" />
+					<img
+						src="/images/logo-icon.png"
+						alt=""
+						width="38"
+						height="32"
+						loading="lazy"
+						class="h-8 w-auto"
+						aria-hidden="true"
+					/>
+				</picture>
+				<span class="text-sm text-slate-400">Co-Founder, Stratagem Agency</span>
+			</div>
+			<div class="flex items-center gap-2.5">
+				<img
+					src="/images/badges/gold-agency-partner.webp"
+					alt=""
+					width="60"
+					height="26"
+					loading="lazy"
+					class="h-5 w-auto"
+					aria-hidden="true"
+				/>
+				<span class="text-sm text-slate-400">Gold Certified impact.com Partner Agency</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sticky CTA, phones only — the booth conversion path -->
+	<div
+		class="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-[#0a1228]/95 p-3 backdrop-blur-sm sm:hidden"
+	>
+		<a
+			href={bookingHref}
+			target={isSet(links.booking) ? '_blank' : undefined}
+			rel={isSet(links.booking) ? 'noopener noreferrer' : undefined}
+			class="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-blue-500"
+		>
+			Book a Meeting
+			<svg
+				width="16"
+				height="16"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg
+			>
+		</a>
+	</div>
+	<!-- Keeps the sticky bar from covering the site footer -->
+	<div class="h-20 sm:hidden" aria-hidden="true"></div>
+
+	<script is:inline>
+		// Log the visit (and its UTM tags) to D1. Inline and fire-and-forget so it
+		// never delays the page — this is scanned on booth wifi.
+		(function () {
+			try {
+				var params = new URLSearchParams(window.location.search);
+				var payload = JSON.stringify({
+					utm_source: params.get('utm_source'),
+					utm_medium: params.get('utm_medium'),
+					utm_campaign: params.get('utm_campaign'),
+					utm_content: params.get('utm_content'),
+					utm_term: params.get('utm_term'),
+					referrer: document.referrer || null,
+					path: window.location.pathname + window.location.search,
+					language: navigator.language || null,
+				});
+				var url = '/api/evolve-view';
+				if (navigator.sendBeacon) {
+					navigator.sendBeacon(url, new Blob([payload], { type: 'application/json' }));
+				} else {
+					fetch(url, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: payload,
+						keepalive: true,
+					});
+				}
+			} catch (e) {
+				/* tracking must never break the page */
+			}
+		})();
+	</script>
+</Layout>

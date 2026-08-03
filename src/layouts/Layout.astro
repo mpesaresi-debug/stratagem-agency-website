@@ -7,19 +7,22 @@ interface Props {
 	title: string;
 	description?: string;
 	image?: string;
+	/** Keep the page out of search results (campaign / landing pages). */
+	noindex?: boolean;
 }
 
 const {
 	title,
 	description = 'Performance-based partnership marketing for brands that want to scale sustainably.',
 	image,
+	noindex = false,
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={Astro.url.pathname.startsWith('/it') ? 'it' : 'en'}>
 	<head>
-		<BaseHead title={title} description={description} image={image} />
+		<BaseHead title={title} description={description} image={image} noindex={noindex} />
 	</head>
 	<body class="bg-[#0a1228] text-white">
 		<Header />

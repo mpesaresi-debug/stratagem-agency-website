@@ -5,10 +5,12 @@ interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	/** Keep the page out of search results (campaign / landing pages). */
+	noindex?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description, image = '/images/logo-icon.png' } = Astro.props;
+const { title, description, image = '/images/logo-icon.png', noindex = false } = Astro.props;
 
 // hreflang helpers
 const pathname = Astro.url.pathname;
@@ -49,9 +51,18 @@ const itURL = new URL(itPath, Astro.site);
 
 <!-- Canonical & hreflang -->
 <link rel="canonical" href={canonicalURL} />
-<link rel="alternate" hreflang="en" href={enURL} />
-<link rel="alternate" hreflang="it" href={itURL} />
-<link rel="alternate" hreflang="x-default" href={enURL} />
+{
+	/* noindex pages are single-language campaign pages — they have no /it twin,
+	   so advertising one would point crawlers at a 404. */
+	!noindex && (
+		<>
+			<link rel="alternate" hreflang="en" href={enURL} />
+			<link rel="alternate" hreflang="it" href={itURL} />
+			<link rel="alternate" hreflang="x-default" href={enURL} />
+		</>
+	)
+}
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
