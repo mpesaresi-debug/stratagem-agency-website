@@ -1,0 +1,19 @@
+{
+  "baseUrl": "https://stratagem.agency",
+  "defaults": {
+    "utm_medium": "qr",
+    "errorCorrectionLevel": "Q",
+    "pngWidth": 1200,
+    "darkColor": "#0a1228",
+    "lightColor": "#ffffff"
+  },
+  "events": [
+    {
+      "slug": "evolve-2026",
+      "label": "PartnerBoost EVOLVE 2026",
+      "path": "/evolve",
+      "utm_campaign": "evolve2026",
+      "surfaces": ["badge", "button", "card"]
+    }
+  ]
+}

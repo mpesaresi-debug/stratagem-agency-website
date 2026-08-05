@@ -23,6 +23,7 @@
 		"typescript": "5.9.3"
 	},
 	"devDependencies": {
+		"qrcode": "^1.5.4",
 		"wrangler": "4.56.0"
 	},
 	"engines": {
@@ -36,7 +37,8 @@
 		"check": "astro build && tsc && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "astro dev",
-		"preview": "astro build && wrangler dev"
+		"preview": "astro build && wrangler dev",
+		"qr": "node scripts/generate-qr.mjs"
 	},
 	"type": "module"
 }
