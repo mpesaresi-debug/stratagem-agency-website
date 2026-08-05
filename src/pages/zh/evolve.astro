@@ -61,6 +61,90 @@ const brands = [
 	"Lega del Filo d'Oro",
 ];
 
+// Brands the team has worked with through agency partnerships over the years —
+// deliberately a SEPARATE list from `brands` above, which is programs Stratagem
+// runs directly. Keeping them apart keeps both claims accurate.
+const experienceBrands = [
+	'1-800-Baskets.com',
+	'1-800-Flowers.ca',
+	'1-800-Flowers.com',
+	'Aera',
+	'Alleyoop',
+	'Andie',
+	'Aussie Bubs',
+	'Bailey 44',
+	'Boarderie',
+	'Bowflex',
+	'Brüush',
+	'Caddis',
+	'Carve Designs',
+	'Cash App',
+	"Cheryl's Cookies",
+	"Chico's",
+	"Chico's Off The Rack",
+	'CookUnity',
+	'Credit Karma',
+	'Cuyana',
+	'DSTLD',
+	'Dave',
+	'Design Toscano',
+	'EveryMundo',
+	'Farther',
+	'Foria',
+	'Fruit Bouquets',
+	'GLD',
+	'GlassesUSA',
+	'Goldbelly',
+	'Harry & David',
+	'Health-Ade',
+	'HerRoom',
+	'Jamie Young Co',
+	'Keen',
+	'Klover',
+	'Madison Reed',
+	'Made by Mary',
+	'Mocha Global',
+	'Monrow',
+	'Moon Juice',
+	'NATORI',
+	'Nautilus',
+	'Parachute',
+	'Peepers',
+	'Peroni',
+	'Personalization Mall',
+	'Pepperjam',
+	'Pistola',
+	'Plants.com',
+	'Popcorn Factory',
+	'Prose',
+	'Quicken',
+	'Remitly',
+	"Shari's Berries",
+	'Simplifi',
+	'Simply Chocolate',
+	'Snake River Farms',
+	'SOMA',
+	'Stateside',
+	'Summersalt',
+	'SeatGeek',
+	'TKEES',
+	"The Pro's Closet",
+	'Tomboy X',
+	'Toppik',
+	'Universal Standard',
+	'Viviscal',
+	'Vital Choice',
+	'Vivid Seats',
+	'Welleco',
+	'White House Black Market',
+	'Wildbird',
+	'Wish',
+	"Wolferman's Bakery",
+	'Xtrema',
+	'Zolt',
+	'eBay',
+];
+
 // Case studies are published anonymized by sector, deliberately not tied to a
 // brand name above. Growth rates only — no absolute revenue or order counts.
 const caseStudies = [
@@ -231,7 +315,7 @@ const iconClass = 'flex-shrink-0';
 				我们助力成长的品牌
 			</h2>
 			<p class="mb-10 max-w-xl text-base leading-relaxed text-gray-500">
-				涵盖服饰、鞋履、家居与食品领域的经典品牌与设计品牌。
+				由我们直接运营的项目，涵盖服饰、鞋履、家居与食品领域。
 			</p>
 
 			<div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -243,6 +327,28 @@ const iconClass = 'flex-shrink-0';
 					))
 				}
 			</div>
+		</div>
+	</section>
+
+	<!-- Experience -->
+	<section class="border-t border-gray-100 bg-white py-16 sm:py-20">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<p class="mb-3 text-sm font-semibold tracking-widest text-blue-600 uppercase">从业经验</p>
+			<h2 class="mb-3 max-w-2xl text-3xl leading-tight font-bold text-gray-900 sm:text-4xl">
+				团队服务过的品牌
+			</h2>
+			<p class="mb-10 max-w-2xl text-base leading-relaxed text-gray-500">
+				十余年联盟与伙伴营销从业经历中，通过机构合作服务过的品牌。
+			</p>
+
+			<ul class="grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3 lg:grid-cols-5">
+				{
+					experienceBrands.map((brand) => (
+						<li class="truncate text-sm text-gray-500">{brand}</li>
+					))
+				}
+			</ul>
+			<p class="mt-8 text-xs text-gray-400">部分名单，并非全部。</p>
 		</div>
 	</section>
 
