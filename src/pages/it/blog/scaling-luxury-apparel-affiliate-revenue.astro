@@ -1,0 +1,344 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+/*
+ * Case study — luxury apparel (DAMA / Paul & Shark, anonymized in line with the
+ * Guzzini case study precedent).
+ *
+ * Every figure below comes from performance_by_day in the Stratagem BI platform,
+ * advertiser_id 6065915, currency EUR. Two comparable 12-month windows:
+ *   Last 12 months  2025-08-03 → 2026-08-02
+ *   Prior 12 months 2024-08-03 → 2025-08-02
+ */
+/*
+ * Growth rates and ratios only — absolute revenue and order counts are
+ * deliberately not published.
+ */
+const deltas = [
+	{ metric: 'Fatturato affiliate', change: '+912%', note: 'più di dieci volte' },
+	{ metric: 'Conversioni', change: '+648%', note: 'sette volte e mezzo' },
+	{ metric: 'Click', change: '+2,411%', note: 'venticinque volte' },
+	{ metric: 'Ritorno sulla spesa', change: '+36%', note: '10.1× → 13.7×' },
+	{ metric: 'Scontrino medio', change: '+35%', note: 'domanda a prezzo pieno' },
+];
+---
+
+<!doctype html>
+<html lang="it">
+<head>
+	<BaseHead
+		title="Case Study: Programma affiliate luxury cresciuto 10× — Stratagem"
+		description="Come un brand italiano di abbigliamento ha fatto crescere il fatturato affiliate del 912% anno su anno, portando il ROAS da 10,1× a 13,7× e lo scontrino medio +35%."
+	/>
+</head>
+<body class="bg-white text-gray-900">
+	<Header />
+	<main>
+
+		<!-- ─── HERO ─────────────────────────────────────────────────────── -->
+		<section class="bg-[#0a1228] pt-32 pb-24 relative overflow-hidden">
+			<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent pointer-events-none"></div>
+			<div class="max-w-5xl mx-auto px-6 lg:px-8 relative">
+
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-widest mb-7">
+					Case Study
+				</div>
+
+				<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl">
+					Un programma affiliate luxury cresciuto 10× in 12 mesi
+				</h1>
+				<p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-12 max-w-3xl">
+					Come un brand italiano di abbigliamento ha moltiplicato per dieci il fatturato
+					affiliate anno su anno — diventando allo stesso tempo più efficiente
+				</p>
+
+				<!-- KPI Bar -->
+				<div class="grid grid-cols-3 gap-4 sm:gap-10 pt-10 border-t border-white/10 mb-12">
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+912%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Fatturato affiliate YoY</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">13.7×</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Ritorno sulla spesa</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+35%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Scontrino medio</div>
+					</div>
+				</div>
+
+				<a href="/it/contact" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors duration-200 shadow-lg shadow-blue-900/40">
+					Parla con noi
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- ─── OVERVIEW ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<div>
+						<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Panoramica</p>
+						<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-tight">
+							Un brand storico con un canale sottoutilizzato
+						</h2>
+						<p class="text-gray-500 leading-relaxed mb-4">
+							Il cliente è una storica maison italiana di abbigliamento, posizionata su una fascia
+							premium in Europa e sui mercati internazionali. Un programma affiliate esisteva già,
+							ma lavorava molto al di sotto del suo potenziale: pochi partner, traffico modesto e
+							un fatturato quasi irrilevante rispetto agli altri canali.
+						</p>
+						<p class="text-gray-500 leading-relaxed">
+							L'obiettivo non era semplicemente "più fatturato". A questo posizionamento, un mix di
+							partner sbagliato erode percezione di marca e marginalità più in fretta di quanto
+							aggiunga vendite. La crescita doveva arrivare senza scontare il brand.
+						</p>
+					</div>
+					<div class="space-y-4">
+						<div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50 transition-all duration-300">
+							<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900 mb-1">Far crescere il canale</div>
+								<div class="text-sm text-gray-500">Portare l'affiliate da voce marginale a linea di fatturato rilevante</div>
+							</div>
+						</div>
+						<div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50 transition-all duration-300">
+							<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900 mb-1">Proteggere il posizionamento</div>
+								<div class="text-sm text-gray-500">Crescere senza appoggiarsi a partner di sconti e coupon</div>
+							</div>
+						</div>
+						<div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50 transition-all duration-300">
+							<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900 mb-1">Più efficienza mentre si cresce</div>
+								<div class="text-sm text-gray-500">La maggior parte dei programmi perde efficienza crescendo — qui doveva migliorare</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── THE CHALLENGE ─────────────────────────────────────────────── -->
+		<section class="py-20 bg-gray-50 reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">La Sfida</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+					Crescita e marginalità di solito tirano in direzioni opposte
+				</h2>
+				<p class="text-gray-500 leading-relaxed mb-12 max-w-3xl">
+					Far crescere un programma luxury è un problema diverso dal mass market. Tre tensioni
+					hanno guidato l'approccio.
+				</p>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="p-6 rounded-2xl bg-white border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-2">La trappola dello sconto</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Il modo più rapido per aumentare i volumi è aprire il programma a coupon e partner
+							incentivanti. Per un brand premium significa comprare fatturato immediato al prezzo
+							del potere di pricing e del valore di marca.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl bg-white border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-2">Una base partner troppo esile</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Con pochi partner attivi il programma era esposto: la performance dipendeva da poche
+							relazioni e mancava la tensione competitiva necessaria a migliorare i posizionamenti.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl bg-white border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-2">Efficienza su scala</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							I programmi tendono a diluirsi crescendo: il costo per conversione sale man mano che
+							si va oltre i partner migliori. Tenere il ROAS moltiplicando i volumi ha richiesto una
+							gestione attiva delle commissioni, non una tariffa impostata e dimenticata.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── APPROACH ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Il Nostro Approccio</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					Reclutare in ampiezza, premiare in profondità
+				</h2>
+
+				<div class="space-y-8">
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">01</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Reclutamento ampio ma selettivo</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Abbiamo ampliato molto la base partner — editori di contenuto, testate editoriali e
+								fashion, più property di comparazione e loyalty ad alta intenzione, con audience
+								coerenti al cliente tipo del brand. Il traffico è cresciuto oltre 25× anno su anno,
+								ma ogni partner è stato valutato per coerenza di marca prima dell'attivazione.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">02</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Commissioni che premiano il valore</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Invece di una tariffa unica, le commissioni sono state strutturate a livelli per
+								premiare i partner che portano ordini realmente incrementali e a prezzo pieno. È la
+								ragione principale per cui lo scontrino medio è salito del 35% proprio nella fase di
+								crescita più rapida.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">03</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Riallocazione continua</h3>
+							<p class="text-gray-500 leading-relaxed">
+								La revisione continua della performance ha permesso di scalare ciò che funzionava e
+								tagliare il resto, mese per mese. L'efficienza è migliorata mentre il programma
+								cresceva — l'opposto della solita curva di diluizione.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── RESULTS ───────────────────────────────────────────────────── -->
+		<section class="py-20 bg-[#0a1228] reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Risultati</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Dieci volte il fatturato, con un ritorno migliore
+				</h2>
+				<p class="text-slate-400 leading-relaxed mb-12 max-w-3xl">
+					Due finestre di dodici mesi confrontabili, misurate sul canale affiliate.
+				</p>
+
+				<div class="space-y-3">
+					{deltas.map(({ metric, change, note }) => (
+						<div class="flex items-center justify-between gap-5 p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
+							<div>
+								<div class="text-base sm:text-lg font-semibold text-white">{metric}</div>
+								<div class="text-sm text-slate-400">{note}</div>
+							</div>
+							<div class="text-2xl sm:text-3xl font-bold text-blue-400 tabular-nums whitespace-nowrap">{change}</div>
+						</div>
+					))}
+				</div>
+
+				<p class="text-xs text-slate-500 mt-6">
+					Performance del canale affiliate, anno su anno. 12 mesi precedenti: ago 2024 – ago 2025.
+					Ultimi 12 mesi: ago 2025 – ago 2026. Il ROAS è il fatturato affiliate diviso il costo
+					totale del canale. I valori assoluti di fatturato e volumi non vengono divulgati.
+				</p>
+			</div>
+		</section>
+
+		<!-- ─── TAKEAWAYS ─────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Conclusioni Chiave</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					Cosa ci dice questo case study
+				</h2>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Scala ed efficienza non sono un compromesso</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Il fatturato è cresciuto oltre dieci volte mentre il ROAS passava da 10,1× a 13,7×.
+							È la gestione disciplinata delle commissioni a renderlo possibile.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Il mix di partner protegge il prezzo</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Lo scontrino medio è salito del 35% nel periodo di crescita più rapida: prova che il
+							programma è cresciuto su domanda a prezzo pieno e non sullo sconto.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">La copertura precede il fatturato</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							I click sono cresciuti 25× prima che seguisse il fatturato. Costruire una base partner
+							ampia e coerente è l'indicatore anticipatore da gestire.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── CTA ───────────────────────────────────────────────────────── -->
+		<section class="py-24 bg-gradient-to-br from-blue-600 to-blue-700 reveal">
+			<div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Vuoi far crescere il tuo canale affiliate?
+				</h2>
+				<p class="text-blue-100 text-lg mb-10 max-w-xl mx-auto">
+					Aiutiamo i brand premium a far crescere il canale affiliate senza ricorrere allo sconto.
+					Parliamo di cosa è possibile per il tuo programma.
+				</p>
+				<a href="/it/contact" class="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl text-lg transition-colors duration-200 shadow-2xl shadow-blue-800/30">
+					Prenota una Chiamata Strategica
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- Back to blog -->
+		<div class="bg-white py-8 border-t border-gray-100">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<a href="/it/blog" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors font-medium">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+					Torna al Blog
+				</a>
+			</div>
+		</div>
+
+	</main>
+	<Footer />
+</body>
+</html>
+
+<style>
+	.reveal {
+		opacity: 0;
+		transform: translateY(28px);
+		transition: opacity 0.65s ease, transform 0.65s ease;
+	}
+	.reveal.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.08 }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

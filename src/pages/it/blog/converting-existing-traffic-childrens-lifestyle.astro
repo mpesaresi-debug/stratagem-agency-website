@@ -1,0 +1,267 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+/*
+ * Case study — design-led children's lifestyle (Banwood, anonymized in line
+ * with the Guzzini case study precedent).
+ *
+ * Figures from performance_by_day, advertiser_id 5387066. Two comparable
+ * 12-month windows: Aug 2024 – Aug 2025 vs Aug 2025 – Aug 2026.
+ * Growth rates and ratios only — no absolute revenue, order or click volumes.
+ *
+ * NOTE: ROAS eased slightly (16.7× → 15.1×) and AOV fell ~9% over the period,
+ * so this page claims neither. It claims what the data supports: conversion.
+ */
+const deltas = [
+	{ metric: 'Fatturato affiliate', change: '+72%', note: 'anno su anno' },
+	{ metric: 'Tasso di conversione', change: '+81%', note: 'dal click all\'ordine' },
+	{ metric: 'Conversioni', change: '+90%', note: 'quasi il doppio' },
+	{ metric: 'Volume di click', change: '+5%', note: 'sostanzialmente stabile' },
+];
+---
+
+<!doctype html>
+<html lang="it">
+<head>
+	<BaseHead
+		title="Case Study: +72% di fatturato affiliate senza comprare più traffico — Stratagem"
+		description="Come un brand di lifestyle per bambini ha quasi raddoppiato il tasso di conversione affiliate, con un fatturato +72% anno su anno e volumi di click sostanzialmente stabili."
+	/>
+</head>
+<body class="bg-white text-gray-900">
+	<Header />
+	<main>
+
+		<!-- ─── HERO ─────────────────────────────────────────────────────── -->
+		<section class="bg-[#0a1228] pt-32 pb-24 relative overflow-hidden">
+			<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent pointer-events-none"></div>
+			<div class="max-w-5xl mx-auto px-6 lg:px-8 relative">
+
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-widest mb-7">
+					Case Study
+				</div>
+
+				<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl">
+					+72% di fatturato affiliate senza comprare più traffico
+				</h1>
+				<p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-12 max-w-3xl">
+					Come un brand di lifestyle per bambini ha quasi raddoppiato il tasso di conversione —
+					crescendo di quasi tre quarti sul traffico che aveva già
+				</p>
+
+				<div class="grid grid-cols-3 gap-4 sm:gap-10 pt-10 border-t border-white/10 mb-12">
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+72%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Fatturato affiliate YoY</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+81%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Tasso di conversione</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+5%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Volume di click</div>
+					</div>
+				</div>
+
+				<a href="/it/contact" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors duration-200 shadow-lg shadow-blue-900/40">
+					Parla con noi
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- ─── OVERVIEW ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+					<div>
+						<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Panoramica</p>
+						<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-tight">
+							Tanto traffico. Troppo poco che converte.
+						</h2>
+						<p class="text-gray-500 leading-relaxed mb-4">
+							Il cliente è un brand di lifestyle per bambini con una forte identità visiva e una
+							community attiva. Il programma affiliate portava già traffico consistente: il
+							problema era ciò che accadeva dopo il click.
+						</p>
+						<p class="text-gray-500 leading-relaxed">
+							Quando un programma ha volumi ma converte poco, aggiungere partner di solito peggiora
+							le cose. Il lavoro è stato migliorare la qualità del traffico già in arrivo.
+						</p>
+					</div>
+					<div class="p-8 rounded-2xl bg-gray-50 border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-4">L'intuizione</h3>
+						<p class="text-gray-500 leading-relaxed text-sm">
+							In dodici mesi il volume di click si è mosso appena: +5%. Le conversioni sono salite
+							del 90%. Quasi tutta la crescita è arrivata convertendo meglio il traffico esistente,
+							non comprandone di più. È la crescita meno costosa che esista — e la più trascurata.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── APPROACH ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-gray-50 reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Il Nostro Approccio</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					Sistemare il click, non il numero di click
+				</h2>
+
+				<div class="space-y-8">
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">01</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Analizzare il traffico per partner, non in aggregato</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Il tasso di conversione a livello di programma nasconde tutto ciò che conta. Spacchettato
+								per partner, era evidente che gran parte dei volumi arrivava da posizionamenti senza
+								intenzione d'acquisto, mentre un gruppo ristretto di partner editoriali convertiva
+								molte volte meglio.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">02</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Riequilibrare verso l'intenzione</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Investimenti e supporto ai posizionamenti si sono spostati verso i partner le cui
+								audience acquistavano davvero — editoria di design, genitorialità e lifestyle — e via
+								dagli inventari ad alto volume e bassa intenzione.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">03</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Allineare la landing page alla promessa</h3>
+							<p class="text-gray-500 leading-relaxed">
+								I link dei partner sono stati allineati ai prodotti e alle pagine di cui parlava
+								davvero il contenuto, così i visitatori atterravano in contesto e non su una homepage.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── RESULTS ───────────────────────────────────────────────────── -->
+		<section class="py-20 bg-[#0a1228] reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Risultati</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Stesso traffico, molto più fatturato
+				</h2>
+				<p class="text-slate-400 leading-relaxed mb-12 max-w-3xl">
+					Due finestre di dodici mesi confrontabili, misurate sul canale affiliate.
+				</p>
+
+				<div class="space-y-3">
+					{deltas.map(({ metric, change, note }) => (
+						<div class="flex items-center justify-between gap-5 p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
+							<div>
+								<div class="text-base sm:text-lg font-semibold text-white">{metric}</div>
+								<div class="text-sm text-slate-400">{note}</div>
+							</div>
+							<div class="text-2xl sm:text-3xl font-bold text-blue-400 tabular-nums whitespace-nowrap">{change}</div>
+						</div>
+					))}
+				</div>
+
+				<p class="text-xs text-slate-500 mt-6">
+					Performance del canale affiliate, anno su anno. 12 mesi precedenti: ago 2024 – ago 2025.
+					Ultimi 12 mesi: ago 2025 – ago 2026. Il ritorno sulla spesa si è mantenuto sopra 15× in
+					entrambi i periodi. I valori assoluti di fatturato e traffico non vengono divulgati.
+				</p>
+			</div>
+		</section>
+
+		<!-- ─── TAKEAWAYS ─────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Conclusioni Chiave</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					Cosa ci dice questo case study
+				</h2>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Il traffico non è il vincolo</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Il fatturato è cresciuto del 72% con click +5%. Prima di reclutare altri partner, scopri
+							quanto convertono davvero quelli che hai già.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Le metriche aggregate nascondono la risposta</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Un tasso di conversione di programma è la media di partner molto diversi. La soluzione
+							diventa visibile solo quando lo si scompone.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Il contesto converte</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Far atterrare i visitatori sulla pagina promessa dal contenuto è tra i miglioramenti
+							meno appariscenti e più affidabili che esistano.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── CTA ───────────────────────────────────────────────────────── -->
+		<section class="py-24 bg-gradient-to-br from-blue-600 to-blue-700 reveal">
+			<div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Tanto traffico ma pochi ordini?
+				</h2>
+				<p class="text-blue-100 text-lg mb-10 max-w-xl mx-auto">
+					Troviamo la conversione lasciata sul tavolo nei programmi che hanno già volumi.
+					Parliamo di cosa sta facendo il tuo.
+				</p>
+				<a href="/it/contact" class="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl text-lg transition-colors duration-200 shadow-2xl shadow-blue-800/30">
+					Prenota una Chiamata Strategica
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<div class="bg-white py-8 border-t border-gray-100">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<a href="/it/blog" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors font-medium">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+					Torna al Blog
+				</a>
+			</div>
+		</div>
+
+	</main>
+	<Footer />
+</body>
+</html>
+
+<style>
+	.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+	.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.08 }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>

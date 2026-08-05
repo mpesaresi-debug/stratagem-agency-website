@@ -1,0 +1,327 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+/*
+ * Case study — performance sportswear (Sidi Sport, anonymized in line with the
+ * Guzzini case study precedent).
+ *
+ * Every figure comes from performance_by_day in the Stratagem BI platform,
+ * advertiser_id 7096667, currency EUR, first click Mar 2026 → Aug 2026.
+ *
+ * NOTE ON FRAMING: this program is five months old. Unlike the Guzzini study,
+ * we deliberately do NOT claim an AOV or new-customer lift versus the site
+ * average — the Shopify data for this store does not support that claim yet.
+ * Every number below is one the data stands behind.
+ *
+ * Growth rates and ratios only — absolute revenue, order and click volumes are
+ * deliberately not published. Each month is indexed against the strongest month
+ * of the ramp (July 2026 = 100).
+ */
+const ramp = [
+	{ month: 'Mar 2026', index: 3, note: 'Validazione tracciamento' },
+	{ month: 'Apr 2026', index: 45, note: 'Primo mese pieno' },
+	{ month: 'May 2026', index: 90, note: '' },
+	{ month: 'Jun 2026', index: 84, note: '' },
+	{ month: 'Jul 2026', index: 100, note: 'Mese migliore' },
+];
+---
+
+<!doctype html>
+<html lang="it">
+<head>
+	<BaseHead
+		title="Case Study: Lanciare un programma affiliate da zero — Stratagem"
+		description="Da zero a +120% di fatturato in cinque mesi: come abbiamo lanciato il programma affiliate di un brand di abbigliamento tecnico mantenendo il ROAS sopra 10× per tutta la crescita."
+	/>
+</head>
+<body class="bg-white text-gray-900">
+	<Header />
+	<main>
+
+		<!-- ─── HERO ─────────────────────────────────────────────────────── -->
+		<section class="bg-[#0a1228] pt-32 pb-24 relative overflow-hidden">
+			<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-transparent pointer-events-none"></div>
+			<div class="max-w-5xl mx-auto px-6 lg:px-8 relative">
+
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-widest mb-7">
+					Case Study
+				</div>
+
+				<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl">
+					Lanciare un programma affiliate da zero
+				</h1>
+				<p class="text-lg sm:text-xl text-slate-300 leading-relaxed mb-12 max-w-3xl">
+					Come un brand di abbigliamento tecnico è passato dal primo click a un programma a pieno
+					regime in cinque mesi — senza perdere efficienza per strada
+				</p>
+
+				<!-- KPI Bar -->
+				<div class="grid grid-cols-3 gap-4 sm:gap-10 pt-10 border-t border-white/10 mb-12">
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">10.4×</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">ROAS dal lancio</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">5</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Mesi al pieno regime</div>
+					</div>
+					<div>
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-1.5">+120%</div>
+						<div class="text-xs sm:text-sm text-blue-300 font-medium">Crescita del fatturato</div>
+					</div>
+				</div>
+
+				<a href="/it/contact" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors duration-200 shadow-lg shadow-blue-900/40">
+					Parla con noi
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- ─── OVERVIEW ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+					<div>
+						<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Panoramica</p>
+						<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-tight">
+							Un brand tecnico senza presenza affiliate
+						</h2>
+						<p class="text-gray-500 leading-relaxed mb-4">
+							Il cliente produce calzature performanti per ciclismo e motociclismo — una categoria
+							tecnica con un pubblico di appassionati e un'editoria specializzata molto forte. Non
+							aveva alcun programma affiliate.
+						</p>
+						<p class="text-gray-500 leading-relaxed">
+							Partire da zero ha un vantaggio: non c'è nulla da smontare. Significa però che ogni
+							elemento — tracciamento, base partner, logica delle commissioni, creatività — va
+							costruito e validato prima di affidare un budget al canale.
+						</p>
+					</div>
+					<div class="space-y-4">
+						<div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50 transition-all duration-300">
+							<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2v20M2 12h20"/></svg>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900 mb-1">Costruire da zero</div>
+								<div class="text-sm text-gray-500">Tracciamento, base partner e logica commissioni partendo da zero</div>
+							</div>
+						</div>
+						<div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50 transition-all duration-300">
+							<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900 mb-1">Dimostrare subito l'efficienza</div>
+								<div class="text-sm text-gray-500">Stabilire un ritorno difendibile prima di chiedere scala</div>
+							</div>
+						</div>
+						<div class="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-50 transition-all duration-300">
+							<div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900 mb-1">Raggiungere un pubblico specializzato</div>
+								<div class="text-sm text-gray-500">Media e community di appassionati, non traffico coupon generalista</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── APPROACH ──────────────────────────────────────────────────── -->
+		<section class="py-20 bg-gray-50 reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Il Nostro Approccio</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					Prima validare, poi scalare
+				</h2>
+
+				<div class="space-y-8">
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">01</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Tracciamento pulito prima di qualsiasi spesa</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Il primo mese è stato volutamente silenzioso: il traffico girava ma le conversioni sono
+								rimaste minime mentre validavamo tracciamento, attribuzione e logica di payout end to
+								end. Lanciare un programma su un tracciamento non verificato è il modo in cui i brand
+								finiscono per pagare fatturato che avrebbero avuto comunque.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">02</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Prima i partner specializzati</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Il reclutamento ha dato priorità a media di appassionati, siti di recensioni tecniche e
+								community di ciclismo e motociclismo — pubblici che già conoscono la categoria e
+								acquistano a prezzo pieno.
+							</p>
+						</div>
+					</div>
+					<div class="flex items-start gap-6">
+						<div class="text-2xl font-bold text-blue-400 tabular-nums flex-shrink-0 leading-none mt-1">03</div>
+						<div>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Tenere la linea dell'efficienza durante la crescita</h3>
+							<p class="text-gray-500 leading-relaxed">
+								Il ritorno sulla spesa è rimasto intorno a 10× in ogni mese della crescita e ha chiuso
+								il periodo meglio di come era partito, a 12,4× a luglio. La crescita non è mai stata
+								comprata allentando le commissioni.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── RESULTS ───────────────────────────────────────────────────── -->
+		<section class="py-20 bg-[#0a1228] reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Risultati</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Cinque mesi, da zero al regime
+				</h2>
+				<p class="text-slate-400 leading-relaxed mb-12 max-w-3xl">
+					Fatturato affiliate mensile dal primo click del programma.
+				</p>
+
+				<div class="space-y-4 mb-12">
+					{ramp.map(({ month, index, note }) => (
+						<div>
+							<div class="flex justify-between items-baseline text-sm mb-2">
+								<span class="text-slate-400">{month}</span>
+								<span class="text-white font-semibold tabular-nums">{index}</span>
+							</div>
+							<div class="h-2.5 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.07)">
+								<div
+									class="h-full rounded-full"
+									style={`width: ${Math.max(index, 1.5)}%; background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)`}
+								></div>
+							</div>
+							{note && <div class="text-xs text-slate-500 mt-1.5">{note}</div>}
+						</div>
+					))}
+				</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+					<div class="p-6 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
+						<div class="text-3xl font-bold text-white mb-1">+120%</div>
+						<div class="text-sm text-slate-400">Crescita del fatturato, dal primo mese pieno al quinto</div>
+					</div>
+					<div class="p-6 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
+						<div class="text-3xl font-bold text-white mb-1">10.4×</div>
+						<div class="text-sm text-slate-400">Ritorno sulla spesa dal lancio</div>
+					</div>
+					<div class="p-6 rounded-2xl bg-white/[0.04] border border-white/[0.07]">
+						<div class="text-3xl font-bold text-white mb-1">12.4×</div>
+						<div class="text-sm text-slate-400">Ritorno sulla spesa al quinto mese</div>
+					</div>
+				</div>
+
+				<p class="text-xs text-slate-500 mt-6">
+					Performance del canale affiliate, marzo – luglio 2026, indicizzata sul mese migliore della
+					crescita. Il ROAS è il fatturato affiliate diviso il costo totale del canale. Il programma
+					è ancora nel primo anno: i dati descrivono una traiettoria di lancio, non un regime
+					maturo. I valori assoluti di fatturato e traffico non vengono divulgati.
+				</p>
+			</div>
+		</section>
+
+		<!-- ─── TAKEAWAYS ─────────────────────────────────────────────────── -->
+		<section class="py-20 bg-white reveal">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<p class="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-3">Conclusioni Chiave</p>
+				<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12 leading-tight">
+					Cosa ci dice questo case study
+				</h2>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Un primo mese silenzioso è un pregio</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Usare il mese di lancio per validare il tracciamento invece di inseguire volumi è ciò
+							che rende affidabili tutti i numeri successivi.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">L'efficienza può sopravvivere alla crescita</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Il ROAS si è mantenuto intorno a 10× per cinque mesi di crescita e ha chiuso più in alto
+							di come era partito: la scala non è costata il ritorno.
+						</p>
+					</div>
+					<div class="p-6 rounded-2xl border border-gray-100">
+						<h3 class="font-bold text-gray-900 mb-1.5">Le categorie tecniche premiano i partner specializzati</h3>
+						<p class="text-sm text-gray-500 leading-relaxed">
+							Nelle categorie tecniche i media di appassionati battono il traffico generalista: quel
+							pubblico sa già perché il prodotto costa quello che costa.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ─── CTA ───────────────────────────────────────────────────────── -->
+		<section class="py-24 bg-gradient-to-br from-blue-600 to-blue-700 reveal">
+			<div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+				<h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
+					Stai partendo da zero con l'affiliate?
+				</h2>
+				<p class="text-blue-100 text-lg mb-10 max-w-xl mx-auto">
+					Costruiamo programmi misurabili dal primo giorno. Parliamo di come sarebbe un lancio per
+					il tuo brand.
+				</p>
+				<a href="/it/contact" class="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 font-bold px-8 py-4 rounded-xl text-lg transition-colors duration-200 shadow-2xl shadow-blue-800/30">
+					Prenota una Chiamata Strategica
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</section>
+
+		<!-- Back to blog -->
+		<div class="bg-white py-8 border-t border-gray-100">
+			<div class="max-w-5xl mx-auto px-6 lg:px-8">
+				<a href="/it/blog" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors font-medium">
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+					Torna al Blog
+				</a>
+			</div>
+		</div>
+
+	</main>
+	<Footer />
+</body>
+</html>
+
+<style>
+	.reveal {
+		opacity: 0;
+		transform: translateY(28px);
+		transition: opacity 0.65s ease, transform 0.65s ease;
+	}
+	.reveal.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{ threshold: 0.08 }
+	);
+	document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
