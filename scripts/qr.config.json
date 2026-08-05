@@ -13,7 +13,21 @@
       "label": "PartnerBoost EVOLVE 2026",
       "path": "/evolve",
       "utm_campaign": "evolve2026",
-      "surfaces": ["badge", "button", "card"]
+      "surfaces": [
+        "badge",
+        "button",
+        "card"
+      ]
+    },
+    {
+      "slug": "evolve-2026-zh",
+      "label": "PartnerBoost EVOLVE 2026 (中文)",
+      "path": "/zh/evolve",
+      "utm_campaign": "evolve2026",
+      "surfaces": [
+        "badge-zh",
+        "card-zh"
+      ]
     }
   ]
 }

@@ -17,10 +17,16 @@ const {
 	image,
 	noindex = false,
 } = Astro.props;
+
+// /zh pages are Simplified Chinese, /it Italian, everything else English.
+// NOTE: nothing may precede <!doctype html> below — not even a comment. Astro
+// drops the <html>/<head>/<body> wrapper if anything does.
+const { pathname } = Astro.url;
+const lang = pathname.startsWith('/zh') ? 'zh-Hans' : pathname.startsWith('/it') ? 'it' : 'en';
 ---
 
 <!doctype html>
-<html lang={Astro.url.pathname.startsWith('/it') ? 'it' : 'en'}>
+<html lang={lang}>
 	<head>
 		<BaseHead title={title} description={description} image={image} noindex={noindex} />
 	</head>
