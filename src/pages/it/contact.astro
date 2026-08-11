@@ -110,6 +110,15 @@ import Layout from '../../layouts/Layout.astro';
 							class="space-y-5"
 						>
 							<input type="hidden" name="locale" value="it" />
+							{/* Provenienza del contatto — compilata dallo script in fondo alla
+							    pagina. Sola lettura: non viene salvato nulla sul dispositivo. */}
+							<input type="hidden" name="referrer" data-attr="referrer" />
+							<input type="hidden" name="landing_path" data-attr="landing_path" />
+							<input type="hidden" name="utm_source" data-attr="utm_source" />
+							<input type="hidden" name="utm_medium" data-attr="utm_medium" />
+							<input type="hidden" name="utm_campaign" data-attr="utm_campaign" />
+							<input type="hidden" name="utm_content" data-attr="utm_content" />
+							<input type="hidden" name="utm_term" data-attr="utm_term" />
 							<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 								<div>
 									<label for="nome" class="block text-xs font-semibold text-gray-700 mb-1.5">Nome</label>
@@ -206,6 +215,27 @@ import Layout from '../../layouts/Layout.astro';
 
 <script>
 	const params = new URLSearchParams(window.location.search);
+
+	// Compila i campi nascosti sulla provenienza del contatto. Legge solo valori
+	// che il browser espone già per questa pagina — nessun cookie, nessun
+	// localStorage o sessionStorage, nessuna richiesta a terzi — quindi non
+	// richiede banner di consenso. Va eseguito prima del blocco success/error,
+	// che rimuove la query string.
+	const attribution: Record<string, string> = {
+		referrer: document.referrer || '',
+		landing_path: window.location.pathname + window.location.search,
+		utm_source: params.get('utm_source') || '',
+		utm_medium: params.get('utm_medium') || '',
+		utm_campaign: params.get('utm_campaign') || '',
+		utm_content: params.get('utm_content') || '',
+		utm_term: params.get('utm_term') || '',
+	};
+
+	for (const [field, value] of Object.entries(attribution)) {
+		const input = document.querySelector<HTMLInputElement>(`input[data-attr="${field}"]`);
+		if (input) input.value = value;
+	}
+
 	if (params.get('success') === 'true') {
 		document.getElementById('banner-success')?.classList.remove('hidden');
 		history.replaceState(null, '', window.location.pathname);

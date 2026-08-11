@@ -1,6 +1,14 @@
 export const prerender = false;
 
 import type { APIContext } from 'astro';
+import { resolveSource } from '../../lib/attribution';
+
+/** Trim to a sane length so a crafted POST can't bloat the table. */
+function clip(value: unknown, max: number): string | null {
+	if (typeof value !== 'string') return null;
+	const trimmed = value.trim();
+	return trimmed ? trimmed.slice(0, max) : null;
+}
 
 const GOAL_LABELS: Record<string, string> = {
 	launch: 'Launch a new affiliate program',
@@ -48,6 +56,32 @@ export async function POST({ request, locals }: APIContext) {
 
 	const goalLabel = GOAL_LABELS[goalRaw] || goalRaw;
 	const fullName = `${firstName} ${lastName}`.trim();
+
+	// Lead source. The hidden fields are filled in on the contact page from
+	// document.referrer and the query string — read only, nothing is stored on
+	// the visitor's device. Country comes from Cloudflare's edge headers.
+	const referrer = clip(formData.get('referrer'), 500);
+	const landingPath = clip(formData.get('landing_path'), 500);
+	const utmSource = clip(formData.get('utm_source'), 120);
+	const utmMedium = clip(formData.get('utm_medium'), 120);
+	const utmCampaign = clip(formData.get('utm_campaign'), 120);
+	const utmContent = clip(formData.get('utm_content'), 120);
+	const utmTerm = clip(formData.get('utm_term'), 120);
+	const country = clip(request.headers.get('cf-ipcountry'), 8);
+
+	const attribution = resolveSource(referrer, utmSource, utmMedium);
+
+	// Shown in the notification email so the source is visible without a query.
+	const sourceSummary = [
+		attribution.sourceLabel,
+		utmCampaign ? `campaign: ${utmCampaign}` : null,
+		landingPath && landingPath !== '/contact' && landingPath !== '/it/contact'
+			? `landed on ${landingPath}`
+			: null,
+		country,
+	]
+		.filter(Boolean)
+		.join(' · ');
 
 	if (!firstName || !email) {
 		return Response.redirect(new URL(`${redirectBase}?error=true`, origin), 303);
@@ -101,6 +135,16 @@ export async function POST({ request, locals }: APIContext) {
           <span style="font-size: 14px; color: #111827;">${goalLabel}</span>
         </td>
       </tr>` : ''}
+      <tr>
+        <td style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">
+          <span style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Source</span>
+        </td>
+        <td style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">
+          <span style="font-size: 14px; color: #111827;">${sourceSummary}</span>
+          ${attribution.sourceKind === 'ai_assistant' ? `
+          <span style="display: inline-block; margin-left: 8px; background: #ede9fe; color: #5b21b6; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em;">AI referral</span>` : ''}
+        </td>
+      </tr>
     </table>
     ${message ? `
     <div style="margin-top: 24px;">
@@ -146,9 +190,31 @@ export async function POST({ request, locals }: APIContext) {
 	if (db) {
 		try {
 			await db.prepare(
-				`INSERT INTO contact_submissions (first_name, last_name, email, company, goal, message, locale, submitted_at)
-				 VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))`
-			).bind(firstName, lastName, email, company || null, goalRaw || null, message || null, locale).run();
+				`INSERT INTO contact_submissions
+				   (first_name, last_name, email, company, goal, message, locale, submitted_at,
+				    referrer, referrer_host, source_label, source_kind, landing_path,
+				    utm_source, utm_medium, utm_campaign, utm_content, utm_term, country)
+				 VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+			).bind(
+				firstName,
+				lastName,
+				email,
+				company || null,
+				goalRaw || null,
+				message || null,
+				locale,
+				referrer,
+				attribution.referrerHost,
+				attribution.sourceLabel,
+				attribution.sourceKind,
+				landingPath,
+				utmSource,
+				utmMedium,
+				utmCampaign,
+				utmContent,
+				utmTerm,
+				country
+			).run();
 		} catch (err) {
 			console.error('[contact] D1 insert failed', err);
 		}
