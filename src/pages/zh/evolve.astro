@@ -38,10 +38,10 @@ const links = {
 	booking: 'https://calendly.com/italypoint_muzio/30-minute-call',
 	/** Company profile PDF — put the file in public/files/ and point here. */
 	profilePdf: '/files/stratagem-company-profile.pdf',
-	/** WeChat QR image — put it in public/images/evolve/ and point here. */
-	wechatQr: PLACEHOLDER,
-	/** e.g. https://wa.me/15551234567 */
-	whatsapp: 'https://wa.me/16178990119',
+	// Deliberately no WeChat QR and no WhatsApp number. This page is indexed
+	// now, so a personal add-me code or phone number would be permanently
+	// crawlable by anyone who finds the page — not just people at the booth.
+	// Contact runs through the booking link, LinkedIn and email instead.
 	linkedin: 'https://www.linkedin.com/company/stratagem-agency-itpt',
 	email: 'contact@stratagem.agency',
 };
@@ -564,52 +564,8 @@ const iconClass = 'flex-shrink-0';
 						</span>
 					</a>
 
-					{
-						isSet(links.whatsapp) && (
-							<a
-								href={links.whatsapp}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="group flex items-center gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.04] p-5 transition-colors hover:border-blue-500/30 hover:bg-white/[0.07]"
-							>
-								<span class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-blue-600/15 text-blue-400 transition-colors group-hover:bg-blue-600 group-hover:text-white">
-									<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-										<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.174.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.82 9.82 0 0 1 2.892 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.82 11.82 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.88 11.88 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.82 11.82 0 0 0 20.464 3.488" />
-									</svg>
-								</span>
-								<span class="min-w-0">
-									<span class="block text-sm font-semibold text-white">WhatsApp</span>
-									<span class="block truncate text-sm text-slate-400">直接与我们沟通</span>
-								</span>
-							</a>
-						)
-					}
 				</div>
 
-				<!-- WeChat -->
-				{
-					isSet(links.wechatQr) && (
-						<div class="rounded-2xl border border-white/[0.07] bg-white/[0.04] p-6 text-center">
-							<div class="mb-4 flex items-center justify-center gap-2.5">
-								<span class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600/15 text-blue-400">
-									<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-										<path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.33.33 0 0 0 .167-.054l1.903-1.114a.86.86 0 0 1 .717-.098 10.2 10.2 0 0 0 2.837.403c.276 0 .543-.027.813-.05-.17-.582-.263-1.192-.263-1.82 0-3.746 3.605-6.783 8.05-6.783.28 0 .552.02.822.05-.684-3.554-4.377-6.28-8.822-6.28zm-2.735 3.53a1.07 1.07 0 1 1 0 2.14 1.07 1.07 0 0 1 0-2.14zm5.47 0a1.07 1.07 0 1 1 0 2.14 1.07 1.07 0 0 1 0-2.14zM24 14.85c0-3.378-3.25-6.132-7.267-6.132-4.017 0-7.266 2.754-7.266 6.132 0 3.379 3.25 6.133 7.266 6.133.84 0 1.658-.113 2.408-.328a.72.72 0 0 1 .598.082l1.586.928a.28.28 0 0 0 .14.045.24.24 0 0 0 .242-.246c0-.06-.024-.12-.04-.177l-.325-1.234a.49.49 0 0 1 .177-.554C23.024 18.354 24 16.694 24 14.85zm-9.62-1.965a.892.892 0 1 1 0 1.784.892.892 0 0 1 0-1.784zm4.559 0a.892.892 0 1 1 0 1.784.892.892 0 0 1 0-1.784z" />
-									</svg>
-								</span>
-								<span class="text-sm font-semibold text-white">微信</span>
-							</div>
-							<img
-								src={links.wechatQr}
-								alt="扫码添加微信"
-								width="200"
-								height="200"
-								loading="lazy"
-								class="mx-auto h-auto w-full max-w-[180px] rounded-xl bg-white p-2"
-							/>
-							<p class="mt-4 text-xs text-slate-400">扫码添加微信</p>
-						</div>
-					)
-				}
 			</div>
 		</div>
 	</section>
