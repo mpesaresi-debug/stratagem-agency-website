@@ -26,8 +26,11 @@ const {
 
 // hreflang helpers
 const pathname = Astro.url.pathname;
-const enPath = pathname.replace(/^\/it(\/|$)/, '/').replace(/\/$/, '') || '/';
-const itPath = pathname.startsWith('/it') ? pathname : `/it${pathname === '/' ? '' : pathname}`;
+// Keep the trailing slash: pages are served at /blog/foo/, so stripping it made
+// every hreflang point at a 301. Google wants these to be the canonical URL, not
+// a redirect to it.
+const enPath = pathname.replace(/^\/it(\/|$)/, '/');
+const itPath = pathname.startsWith('/it') ? pathname : `/it${pathname === '/' ? '/' : pathname}`;
 const enURL = new URL(enPath, Astro.site);
 const itURL = new URL(itPath, Astro.site);
 ---
