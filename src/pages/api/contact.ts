@@ -2,6 +2,7 @@ export const prerender = false;
 
 import type { APIContext } from 'astro';
 import { resolveSource } from '../../lib/attribution';
+import { hashInputs, visitorHash } from '../../lib/visitor';
 
 /** Trim to a sane length so a crafted POST can't bloat the table. */
 function clip(value: unknown, max: number): string | null {
@@ -70,6 +71,12 @@ export async function POST({ request, locals }: APIContext) {
 	const country = clip(request.headers.get('cf-ipcountry'), 8);
 
 	const attribution = resolveSource(referrer, utmSource, utmMedium);
+
+	// Same stamp the Worker puts on page views, so this lead can be joined back
+	// to the entry visit that brought them in — which is where the original
+	// referrer lives when they arrived on a blog post and navigated here.
+	const { ip, userAgent } = hashInputs(request);
+	const submissionVisitorHash = await visitorHash(ip, userAgent);
 
 	// Shown in the notification email so the source is visible without a query.
 	const sourceSummary = [
@@ -193,8 +200,9 @@ export async function POST({ request, locals }: APIContext) {
 				`INSERT INTO contact_submissions
 				   (first_name, last_name, email, company, goal, message, locale, submitted_at,
 				    referrer, referrer_host, source_label, source_kind, landing_path,
-				    utm_source, utm_medium, utm_campaign, utm_content, utm_term, country)
-				 VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+				    utm_source, utm_medium, utm_campaign, utm_content, utm_term, country,
+				    visitor_hash)
+				 VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
 			).bind(
 				firstName,
 				lastName,
@@ -213,7 +221,8 @@ export async function POST({ request, locals }: APIContext) {
 				utmCampaign,
 				utmContent,
 				utmTerm,
-				country
+				country,
+				submissionVisitorHash
 			).run();
 		} catch (err) {
 			console.error('[contact] D1 insert failed', err);

@@ -2,10 +2,20 @@
 	"name": "stratagem-agency-website",
 	"compatibility_date": "2025-10-08",
 	"compatibility_flags": ["nodejs_compat"],
-	"main": "./dist/_worker.js/index.js",
+	"main": "./worker-entry.ts",
 	"assets": {
 		"directory": "./dist",
-		"binding": "ASSETS"
+		"binding": "ASSETS",
+		"run_worker_first": [
+			"/",
+			"/about/*",
+			"/blog/*",
+			"/contact/*",
+			"/evolve/*",
+			"/it/*",
+			"/services/*",
+			"/zh/*"
+		]
 	},
 	"observability": {
 		"enabled": true
