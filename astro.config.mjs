@@ -7,9 +7,11 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
 	site: "https://stratagem.agency",
-	// /evolve is a QR-code landing page for a single event — keep it out of the
-	// sitemap so it never competes with the main site in search.
-	integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/evolve') })],
+	// /evolve started as a QR-code landing page but its content is evergreen
+	// positioning for Chinese brands expanding abroad — the only page on the
+	// site covering that market, and the only Simplified Chinese content we
+	// have. It is indexed deliberately.
+	integrations: [mdx(), sitemap()],
 	adapter: cloudflare({
 		platformProxy: {
 			enabled: true,

@@ -7,10 +7,22 @@ interface Props {
 	image?: string;
 	/** Keep the page out of search results (campaign / landing pages). */
 	noindex?: boolean;
+	/**
+	 * Explicit hreflang alternates, for pages whose translations are not the
+	 * site-wide EN/IT pair — the /evolve pages are EN + Simplified Chinese.
+	 * When set, these replace the default pair rather than adding to it.
+	 */
+	alternates?: { hreflang: string; path: string }[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description, image = '/images/logo-icon.png', noindex = false } = Astro.props;
+const {
+	title,
+	description,
+	image = '/images/logo-icon.png',
+	noindex = false,
+	alternates,
+} = Astro.props;
 
 // hreflang helpers
 const pathname = Astro.url.pathname;
@@ -52,15 +64,22 @@ const itURL = new URL(itPath, Astro.site);
 <!-- Canonical & hreflang -->
 <link rel="canonical" href={canonicalURL} />
 {
-	/* noindex pages are single-language campaign pages — they have no /it twin,
-	   so advertising one would point crawlers at a 404. */
-	!noindex && (
-		<>
-			<link rel="alternate" hreflang="en" href={enURL} />
-			<link rel="alternate" hreflang="it" href={itURL} />
-			<link rel="alternate" hreflang="x-default" href={enURL} />
-		</>
-	)
+	/* noindex pages have no business advertising translations. Otherwise: an
+	   explicit `alternates` list wins, since a page with its own language pair
+	   (EN/ZH on /evolve) would otherwise point crawlers at a /it twin that
+	   does not exist. */
+	!noindex &&
+		(alternates
+			? alternates.map(({ hreflang, path }) => (
+					<link rel="alternate" hreflang={hreflang} href={new URL(path, Astro.site)} />
+				))
+			: (
+					<>
+						<link rel="alternate" hreflang="en" href={enURL} />
+						<link rel="alternate" hreflang="it" href={itURL} />
+						<link rel="alternate" hreflang="x-default" href={enURL} />
+					</>
+				))
 }
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 

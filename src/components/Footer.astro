@@ -49,6 +49,11 @@ const base = isIT ? '/it' : '';
 					<li><a href={`${base}/services#partner-recruitment`} class="hover:text-white transition-colors">{isIT ? 'Reclutamento Partner' : 'Partner Recruitment'}</a></li>
 					<li><a href={`${base}/services#commission-optimization`} class="hover:text-white transition-colors">{isIT ? 'Ottimizzazione Commissioni' : 'Commission Optimization'}</a></li>
 					<li><a href={`${base}/services#compliance`} class="hover:text-white transition-colors">{isIT ? 'Compliance & Reporting' : 'Compliance & Reporting'}</a></li>
+					{/* Not `${base}`-prefixed: this page exists in English and Simplified
+					    Chinese only, so an /it/evolve link would 404. It is here to give
+					    the page site-wide internal links — it was previously an orphan
+					    nothing linked to, which no sitemap entry can make up for. */}
+					<li><a href="/evolve" class="hover:text-white transition-colors">{isIT ? 'Brand Cinesi nel Mondo' : 'Chinese Brands Going Global'}</a></li>
 				</ul>
 			</div>
 

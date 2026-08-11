@@ -9,6 +9,8 @@ interface Props {
 	image?: string;
 	/** Keep the page out of search results (campaign / landing pages). */
 	noindex?: boolean;
+	/** Override the default EN/IT hreflang pair — see BaseHead. */
+	alternates?: { hreflang: string; path: string }[];
 }
 
 const {
@@ -16,6 +18,7 @@ const {
 	description = 'Performance-based partnership marketing for brands that want to scale sustainably.',
 	image,
 	noindex = false,
+	alternates,
 } = Astro.props;
 
 // /zh pages are Simplified Chinese, /it Italian, everything else English.
@@ -28,7 +31,13 @@ const lang = pathname.startsWith('/zh') ? 'zh-Hans' : pathname.startsWith('/it')
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<BaseHead title={title} description={description} image={image} noindex={noindex} />
+		<BaseHead
+			title={title}
+			description={description}
+			image={image}
+			noindex={noindex}
+			alternates={alternates}
+		/>
 	</head>
 	<body class="bg-[#0a1228] text-white">
 		<Header />

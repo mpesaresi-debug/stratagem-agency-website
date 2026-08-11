@@ -16,6 +16,18 @@ import Layout from '../layouts/Layout.astro';
  * always safe to deploy — it just shows one option fewer. `npm run dev` prints
  * a banner listing whatever is still missing.
  */
+/**
+ * This page and /zh/evolve are translations of each other, not part of the
+ * site-wide EN/IT pair. Declared explicitly so Google reads them as language
+ * variants rather than competing duplicates — and so neither advertises an
+ * /it twin that does not exist. Keep in sync with src/pages/zh/evolve.astro.
+ */
+const EVOLVE_ALTERNATES = [
+	{ hreflang: 'en', path: '/evolve/' },
+	{ hreflang: 'zh-Hans', path: '/zh/evolve/' },
+	{ hreflang: 'x-default', path: '/evolve/' },
+];
+
 const PLACEHOLDER = 'PLACEHOLDER';
 
 const links = {
@@ -199,9 +211,9 @@ const iconClass = 'flex-shrink-0';
 ---
 
 <Layout
-	title="Stratagem Agency — EVOLVE 2026"
-	description="Affiliate, partnership, and influencer marketing for Chinese brands expanding into global markets. Meet Stratagem at PartnerBoost EVOLVE 2026."
-	noindex={true}
+	title="Affiliate Marketing for Chinese Brands Going Global | Stratagem"
+	description="Gold Certified impact.com partner agency running affiliate, partnership and influencer programs for Chinese brands entering the US and Europe. Meet us at PartnerBoost EVOLVE 2026, August 26–28."
+	alternates={EVOLVE_ALTERNATES}
 >
 	{
 		import.meta.env.DEV && missing.length > 0 && (
