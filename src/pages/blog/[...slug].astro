@@ -4,11 +4,29 @@ import BlogPost from '../../layouts/BlogPost.astro';
 import { render } from 'astro:content';
 
 export async function getStaticPaths() {
+	/*
+	 * Slugs with a hand-designed page at src/pages/blog/<slug>.astro. Those
+	 * static routes already outrank this catch-all, so emitting a path for them
+	 * here only produced one build warning per post and rendered nothing.
+	 * Derived from the filesystem rather than hardcoded, so the list cannot
+	 * drift as pages are added or removed.
+	 *
+	 * Declared inside getStaticPaths on purpose: Astro hoists this function out
+	 * of the component script, so it cannot see consts defined alongside it.
+	 */
+	const overridden = new Set(
+		Object.keys(import.meta.glob('./*.astro'))
+			.map((path) => path.slice(2, -'.astro'.length))
+			.filter((slug) => slug !== 'index' && !slug.startsWith('['))
+	);
+
 	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
+	return posts
+		.filter((post) => !overridden.has(post.id))
+		.map((post) => ({
+			params: { slug: post.id },
+			props: post,
+		}));
 }
 type Props = CollectionEntry<'blog'>;
 

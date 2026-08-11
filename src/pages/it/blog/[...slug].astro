@@ -3,11 +3,24 @@ import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
+	/*
+	 * Slugs with a hand-designed page at src/pages/it/blog/<slug>.astro — see
+	 * the English route for the reasoning. Declared inside getStaticPaths
+	 * because Astro hoists this function out of the component script.
+	 */
+	const overridden = new Set(
+		Object.keys(import.meta.glob('./*.astro'))
+			.map((path) => path.slice(2, -'.astro'.length))
+			.filter((slug) => slug !== 'index' && !slug.startsWith('['))
+	);
+
 	const posts = await getCollection('blog-it');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
+	return posts
+		.filter((post) => !overridden.has(post.id))
+		.map((post) => ({
+			params: { slug: post.id },
+			props: post,
+		}));
 }
 
 type Props = CollectionEntry<'blog-it'>;
