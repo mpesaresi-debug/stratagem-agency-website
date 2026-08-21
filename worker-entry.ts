@@ -105,10 +105,24 @@ export default {
 			const blocked = checkDeckAuth(request, env.DECK_PASSWORD);
 			if (blocked) return blocked;
 
+			// Passed through unchanged apart from the headers below, so Range
+			// requests keep working — the deck video is unseekable without them.
 			const asset = await env.ASSETS.fetch(request);
 			const headers = new Headers(asset.headers);
 			headers.set('x-robots-tag', 'noindex, nofollow');
-			headers.set('cache-control', 'private, no-store');
+
+			// The page itself must never be held anywhere: no-store keeps it out
+			// of shared caches and forces a fresh request each visit. Media is
+			// different — no-store there makes the browser re-download the file
+			// on every seek, so it may sit in the user's *private* cache. Basic
+			// auth is re-sent on every request regardless, so caching never
+			// bypasses the gate.
+			const isHtml = (asset.headers.get('content-type') ?? '').includes('text/html');
+			headers.set(
+				'cache-control',
+				isHtml ? 'private, no-store' : 'private, max-age=3600'
+			);
+
 			return new Response(asset.body, {
 				status: asset.status,
 				statusText: asset.statusText,
