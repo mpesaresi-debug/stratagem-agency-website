@@ -23,9 +23,14 @@
 import astroWorker from './dist/_worker.js/index.js';
 import { classifyReferrer } from './src/lib/attribution';
 import { hashInputs, visitorHash } from './src/lib/visitor';
+import { checkDeckAuth, isDeckPath } from './src/lib/deck-auth';
 
 interface Env {
 	DB?: D1Database;
+	/** Workers Assets binding — serves the prerendered files in ./dist. */
+	ASSETS: Fetcher;
+	/** Basic-auth password for /deck. Set with `wrangler secret put DECK_PASSWORD`. */
+	DECK_PASSWORD?: string;
 }
 
 /** Trim so a crafted request cannot bloat the table. */
@@ -90,6 +95,27 @@ async function logPageView(request: Request, env: Env, url: URL): Promise<void> 
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+		// The private deck is gated before anything else touches the request, so
+		// there is no path where the file is served and the check runs after.
+		// It is a static asset, so it goes straight to Workers Assets rather
+		// than through Astro. Never logged as a page view: the deck is not
+		// marketing traffic and its visitors are already known to us.
+		const deckUrl = new URL(request.url);
+		if (isDeckPath(deckUrl.pathname)) {
+			const blocked = checkDeckAuth(request, env.DECK_PASSWORD);
+			if (blocked) return blocked;
+
+			const asset = await env.ASSETS.fetch(request);
+			const headers = new Headers(asset.headers);
+			headers.set('x-robots-tag', 'noindex, nofollow');
+			headers.set('cache-control', 'private, no-store');
+			return new Response(asset.body, {
+				status: asset.status,
+				statusText: asset.statusText,
+				headers,
+			});
+		}
+
 		const response: Response = await astroWorker.fetch(request, env, ctx);
 
 		try {

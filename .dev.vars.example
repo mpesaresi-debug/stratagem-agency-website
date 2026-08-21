@@ -1,0 +1,7 @@
+# Copy to .dev.vars for local development. Real values live in Cloudflare
+# secrets (`npx wrangler secret put <NAME>`), never in the repo.
+
+# Basic-auth password for the private deck at /deck. Any username is accepted;
+# only the password is checked. If this is unset the gate fails closed and
+# /deck returns 503 rather than serving the deck.
+DECK_PASSWORD=change-me-locally

@@ -11,6 +11,8 @@
 			"/about/*",
 			"/blog/*",
 			"/contact/*",
+			"/deck",
+			"/deck/*",
 			"/evolve/*",
 			"/it/*",
 			"/services/*",
